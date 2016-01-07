@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/07 17:27:00 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/07 17:44:22 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,14 @@ int	filecheck(char *buf, int i, int line)
 			line = 0;
 			col++;
 		}
-		if (col > 4 && buf[i] == '\n')
+		if (col > 3 && buf[i] == '\n')
 		{
 			col = 0;
-			line = -1;
+			line = 0;
 			dies = 0;
 			i++;
 		}
-		printf("line: %d\ncol: %d\ndies: %d\nchar: %c\n", line, col, dies, buf[i]);
 	}
-	ft_putstr("ok\n");
 	return (0);
 }
 
