@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/07 17:23:04 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/07 17:27:00 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	filecheck(char *buf, int i, int line)
 			dies++;
 		if (dies > 4)
 			return (error());
+		i++;
+		line++;
 		if (line > 4)
 		{
 			line = 0;
@@ -55,8 +57,6 @@ int	filecheck(char *buf, int i, int line)
 			i++;
 		}
 		printf("line: %d\ncol: %d\ndies: %d\nchar: %c\n", line, col, dies, buf[i]);
-		i++;
-		line++;
 	}
 	ft_putstr("ok\n");
 	return (0);
