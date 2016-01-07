@@ -1,0 +1,30 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gjacot <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/01/07 12:55:13 by gjacot            #+#    #+#              #
+#    Updated: 2016/01/07 14:09:13 by gjacot           ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
+NAME = fillit
+
+SRC =	./mainfillit.c \
+
+HEAD = -I ./include
+
+LIB = -L ./include -lft
+
+all: $(NAME)
+
+$(NAME):
+		gcc -Wall -Wextra -Werror $(HEAD) -o $(NAME) $(SRC) $(LIB)
+
+clean:
+		rm -f *.c~
+fclean: clean
+		rm -f $(NAME)
+re: fclean all
