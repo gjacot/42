@@ -6,42 +6,49 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/07 17:52:56 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/10 19:51:24 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libfillit.h>
 #include <libft.h>
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
-#include <stdio.h>
 
 #define BUF_SIZE 4096
 
-int	error(void)
+int		checkerror(char *buf, int i, int line, int col)
 {
-	ft_putstr("error\n");
-	return (0);
+	if (buf[i] != '#' && buf[i] != '.' && line != 4 && col != 4)
+		return (0);
+	else if ((line == 4 || col == 4) && buf[i] != '\n')
+		return (0);
+	return (1);
 }
 
-int	filecheck(char *buf, int i, int line)
+void	nextsquare(int *col, int *line, int *dies, int *i)
 {
-	int col;
+	*col = 0;
+	*line = 0;
+	*dies = 0;
+	*i = *i + 1;
+}
+
+int		filecheck(char *buf, int i, int line)
+{
 	int dies;
+	int col;
 
 	dies = 0;
 	col = 0;
 	while (buf[i] != '\0')
 	{
-		if (buf[i] != '#' && buf[i] != '.' && line != 4 && col != 4)
-			return (error());
-		else if ((line == 4 || col == 4) && buf[i] != '\n')
-			return (error());
-		else if (buf[i] == '#')
+		if (buf[i] == '#')
 			dies++;
-		if (dies > 4)
-			return (error());
+		if (checkerror(buf, i, line, col) != 1 || dies > 4)
+			error();
 		i++;
 		line++;
 		if (line > 4)
@@ -49,18 +56,13 @@ int	filecheck(char *buf, int i, int line)
 			line = 0;
 			col++;
 		}
-		if (col == 4 && buf[i] == '\n')
-		{
-			col = 0;
-			line = 0;
-			dies = 0;
-			i++;
-		}
+		if (col == 4 && buf[i] == '\n' && dies == 4)
+			nextsquare(&col, &line, &dies, &i);
 	}
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int		fd;
 	int		ret;
@@ -74,10 +76,10 @@ int	main(int argc, char **argv)
 		return (error());
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		return (error());
+		error();
 	ret = read(fd, buf, BUF_SIZE);
 	buf[ret] = '\0';
 	if (filecheck(buf, i, line) == 1)
-		ft_putstr("ok");
+		lastcheck(buf);
 	return (0);
 }

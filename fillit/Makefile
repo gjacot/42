@@ -6,13 +6,16 @@
 #    By: gjacot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/07 12:55:13 by gjacot            #+#    #+#              #
-#    Updated: 2016/01/07 14:09:13 by gjacot           ###   ########.fr        #
+#    Updated: 2016/01/10 17:22:54 by gjacot           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = fillit
 
 SRC =	./mainfillit.c \
+		./test.c	\
+		./error.c	\
+		./lastcheck.c	\
 
 HEAD = -I ./include
 
