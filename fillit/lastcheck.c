@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/11 15:07:55 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/11 15:11:45 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,14 @@ int	countline(int *die)
 	return (line);
 }
 
-int	lastcheck(char *buf)
+int	lastcheck(char *buf, int i)
 {
-	int i;
 	int j;
 	int die[4];
 	int fi;
 
-	i = 0;
 	j = 0;
+	i = 0;
 	fi = i;
 	while (buf[i] != '\0')
 	{
