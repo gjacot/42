@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/10 19:51:24 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/11 13:21:07 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	nextsquare(int *col, int *line, int *dies, int *i)
 	*line = 0;
 	*dies = 0;
 	*i = *i + 1;
+	if (*i % 21 != 0)
+		error();
 }
 
 int		filecheck(char *buf, int i, int line)
@@ -73,7 +75,7 @@ int		main(int argc, char **argv)
 	line = 0;
 	i = 0;
 	if (argc != 2)
-		return (error());
+		error();
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		error();

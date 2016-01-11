@@ -6,17 +6,43 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/10 20:45:38 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/11 12:39:38 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
-#include <stdio.h>
 
-int	countlline(int *buf)
+int	isnextto(int *die, int j, int *line)
 {
+	if (die[j] - 1 == die[j - 1] || die[j] - 5 == die[j - 1])
+		*line = *line + 1;
+	if (die[j] - 1 == die[j - 2] || die[j] - 5 == die[j - 2])
+		*line = *line + 1;
+	if (die[j] - 1 == die[j - 3] || die[j] - 5 == die[j - 3])
+		*line = *line + 1;
+	if (die[j] + 1 == die[j + 1] || die[j] + 5 == die[j + 1])
+		*line = *line + 1;
+	if (die[j] + 1 == die[j + 2] || die[j] + 5 == die[j + 2])
+		*line = *line + 1;
+	if (die[j] + 1 == die[j + 3] || die[j] + 5 == die[j + 3])
+		*line = *line + 1;
+	return (0);
+}
 
+int	countline(int *die)
+{
+	int j;
+	int line;
+
+	j = 0;
+	line = 0;
+	while (j < 4)
+	{
+		isnextto(die, j, &line);
+		j++;
+	}
+	return (line);
 }
 
 int	lastcheck(char *buf)
@@ -24,43 +50,26 @@ int	lastcheck(char *buf)
 	int i;
 	int j;
 	int die[4];
-	int fj;
-	int nbd;
+	int fi;
 
 	i = 0;
 	j = 0;
 	fi = i;
-	nbd = 0;
 	while (buf[i] != '\0')
 	{
-		while (nbd != 4)
+		while (j < 4)
 		{
 			while (buf[i] != '#')
 				i++;
 			die[j] = i;
-			nbd++;
 			i++;
 			j++;
 		}
-		if (!(countline(die) == 8 || coutline(die) == 6));
+		if (!(countline(die) == 8 || countline(die) == 6))
 			error();
-		line = 0;
 		i = fi + 21;
 		fi = i;
-		nbd = 0;
 	}
-	ft_putstr("ok\n");
+	ft_putstr("ok youpi\n");
 	return (1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
