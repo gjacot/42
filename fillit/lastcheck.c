@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/11 12:39:38 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/11 15:07:55 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	lastcheck(char *buf)
 		if (!(countline(die) == 8 || countline(die) == 6))
 			error();
 		i = fi + 21;
+		j = 0;
 		fi = i;
 	}
 	ft_putstr("ok youpi\n");
