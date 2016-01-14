@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/11 15:41:53 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/14 15:00:09 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		filecheck(char *buf, int i, int line)
 		if (col == 4 && buf[i] == '\n' && dies == 4)
 			nextsquare(&col, &line, &dies, &i);
 	}
-	if (buf[i - 1] != '\n' || buf[i - 2] != '\n')
+	if (buf[i - 1] != '\n' || (buf[i - 2] != '.' && buf[i - 2] != '#'))
 		error();
 	return (1);
 }
