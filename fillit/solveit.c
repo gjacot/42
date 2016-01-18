@@ -6,13 +6,12 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 17:00:56 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/18 17:10:02 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
-#include <stdio.h>
 
 int		firstsquare(int i)
 {
@@ -47,13 +46,17 @@ void	affiche(char **tab_piece)
 	i = 0;
 	while (tab_piece[i] != NULL)
 	{
-		printf("tab_piece[%d] = ", i);
+		ft_putstr("tab_piece[");
+		ft_putnbr(i);
+		ft_putstr("]\n");
+
 		while (j < 4)
 		{
-			printf("%d - ", tab_piece[i][j]);
+			ft_putnbr(tab_piece[i][j]);
+			ft_putstr(" - ");
 			j++;
 		}
-		printf("\n");
+		ft_putstr("\n");
 		i++;
 		j = 0;
 	}
