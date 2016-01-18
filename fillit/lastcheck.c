@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/14 14:47:16 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/18 13:40:51 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	lastcheck(char *buf, int i)
 		j = 0;
 		fi = i;
 	}
-	ft_putstr("ok\n");
-	//solveit(buf);
+	solveit(buf);
 	return (1);
 }

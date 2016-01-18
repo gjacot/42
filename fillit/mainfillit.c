@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/14 18:17:47 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/14 18:21:16 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,9 @@ int		filecheck(char *buf, int i, int line)
 {
 	int dies;
 	int col;
-	int nbpieces;
 
 	dies = 0;
 	col = 0;
-	nbpieces = 0;
 	while (buf[i] != '\0')
 	{
 		if (buf[i] == '#')
@@ -59,7 +57,6 @@ int		filecheck(char *buf, int i, int line)
 		{
 			line = 0;
 			col++;
-			nbpieces++;
 		}
 		if (col == 4 && buf[i] == '\n' && dies == 4)
 			nextsquare(&col, &line, &dies, &i);

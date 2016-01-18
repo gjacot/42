@@ -6,24 +6,15 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/14 16:31:10 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/18 13:46:01 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
 
-int	firstsquare(char *buf)
+int	firstsquare(int i)
 {
-	int i;
-
-	i = 0;
-	while (buf[i] != '\0')
-		i++;
-	i++;
-	i = i / 21;
-	ft_putnbr(i);
-	ft_putchar('\n');
 	if (i == 1)
 		return (2);
 	if (i == 2)
@@ -46,38 +37,17 @@ int	firstsquare(char *buf)
 		return (11);
 }
 
-int	**ft_pieces(char *buf, int **pieces)
-{
-	int i;
-	int j;
-	int k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	while (buf[i] != '\0')
-	{
-		while (buf[i] != '#')
-			i++;
-		pieces[j][k] = i;
-		j++;
-		if (j == 3)
-		{
-			k++;
-			j = 0;
-		}
-	}
-	return (**pieces);
-}
-
 int	solveit(char *buf)
 {
-	int size;
-	int pieces[4][firstsquare(buf)];
+	int square;
+	int i;
 
-	pieces = ft_pieces(buf, pieces);
-	ft_putnbr(pieces[1][0]);
-	ft_putchar('\n');
-	ft_putnbr(pieces[0][3]);
+	i = 0;
+	while (buf[i] != '\0')
+		i++;
+	i++;
+	i = i / 21;
+	square = firstsquare(i);
+	ft_putnbr(square);
 	return (0);
 }
