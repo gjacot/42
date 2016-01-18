@@ -17,6 +17,7 @@ SRC =	./mainfillit.c \
 		./error.c	\
 		./lastcheck.c	\
 		./solveit.c	\
+		./tab.c	\
 
 HEAD = -I ./include
 
