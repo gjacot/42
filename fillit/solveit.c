@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   solveit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 14:38:19 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/18 16:28:14 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
+#include <stdio.h>
 
 int	firstsquare(int i)
 {
@@ -43,50 +44,96 @@ int	compte_tab(char *buf)
 	int piece;
 
 	piece = 1;
-	i = 18;
+	i = 0;
 	while (buf[i] != '\0')
 	{
-		if (buf[i - 1] != '\n' && buf[i - 2] != '\n')
+		if (buf[i -1] == '\n' && buf[i - 2] == '\n')
 			piece++;
 		i++;
 	}
 	return (piece);
 }
 
+
 char	**remplir_tab(char *buf)
 {
-	int		nb_piece;
 	char	**tab_piece;
-	char	lettre;
+	int		j;
 	int		i;
+	int		k;
+	int 	l;
 
 	i = 0;
-	lettre = 'A';
-	nb_piece = compte_tab(buf);
-	tab_piece = (char **)malloc(sizeof(char *) * nb_piece);
-	while (i < 5)
-		tab_piece[i++] = (char *)malloc(sizeof(char) * 5);
-	i = 0;
+	j = 0;
+	k = 0;
+	l = 0;
+	tab_piece = inittab(buf);
 	while (buf[i] != '\0')
 	{
-		if (buf[i] != '\n')
-		{
-			if (i % 5 == 0)
-				tab_piece[lettre - 'A'][0] = lettre;
-			else
-				tab_piece[lettre - 'A'][i % 5] = buf[i];
+		if (buf[i - 1] == '\n' && buf[i - 2] == '\n')
+		{	
+			k = 0;
+			l = 0;
+			j++;
 		}
-		if (buf[i - 1] != '\n' && buf[i - 2] != '\n')
-			lettre++;
+		if (buf[i] == '#')
+		{
+			tab_piece[j][k] = l;
+			k++;
+		}
+		if (buf[i] != '\n')
+			l++;
 		i++;
 	}
 	return (tab_piece);
+}
+
+char **inittab(char *buf)
+{
+	int 	i;
+	int 	nb_piece;
+	char 	**tab_piece;
+
+	i = 0;
+	nb_piece = compte_tab(buf);
+	if(!(tab_piece = ft_memalloc(sizeof(char *) * nb_piece + 1)))
+		error2("Probleme malloc\n");
+	tab_piece[nb_piece] = NULL;
+	while (i < nb_piece)
+	{
+		if(!(tab_piece[i] = ft_memalloc(sizeof(char) * 4)))
+			error2("Probleme malloc\n");
+		i++;
+	}
+	return (tab_piece);
+}
+
+void affiche(char **tab_piece)
+{
+	int i;
+	int j;
+
+	j = 0;
+	i = 0;
+	while(tab_piece[i] != NULL)
+	{
+		printf("tab_piece[%d] = ", i);
+		while(j < 4)
+		{
+			printf("%d - ", tab_piece[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+		j = 0;
+	}
 }
 
 int	solveit(char *buf)
 {
 	int square;
 	int i;
+	char **tab_piece;
 
 	i = 0;
 	while (buf[i] != '\0')
@@ -94,6 +141,8 @@ int	solveit(char *buf)
 	i++;
 	i = i / 21;
 	square = firstsquare(i);
-	remplir_tab(buf);
+	tab_piece = remplir_tab(buf);
+	affiche(tab_piece);
 	return (0);
 }
+
