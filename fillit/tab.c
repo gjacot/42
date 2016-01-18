@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/18 18:21:27 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/18 18:38:53 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,10 @@ char	**initsquare(int square)
 {
 	char	**tab;
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	if (!(tab = ft_memalloc(sizeof(char *) * square + 1)))
 		error2("Probleme malloc (square)\n");
 	tab[square] = NULL;
@@ -103,7 +105,13 @@ char	**initsquare(int square)
 	{
 		if (!(tab[i] = ft_memalloc(sizeof(char) * square + 1)))
 			error2("Probleme malloc (square)\n");
+		while(j < square)
+		{
+			tab[i][j] = '.';
+			j++;
+		}
 		i++;
+		j = 0;
 	}
 	return (tab);
 }
