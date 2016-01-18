@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 13:46:01 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/18 14:38:19 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,52 @@ int	firstsquare(int i)
 		return (11);
 }
 
+int	compte_tab(char *buf)
+{
+	int i;
+	int piece;
+
+	piece = 1;
+	i = 18;
+	while (buf[i] != '\0')
+	{
+		if (buf[i - 1] != '\n' && buf[i - 2] != '\n')
+			piece++;
+		i++;
+	}
+	return (piece);
+}
+
+char	**remplir_tab(char *buf)
+{
+	int		nb_piece;
+	char	**tab_piece;
+	char	lettre;
+	int		i;
+
+	i = 0;
+	lettre = 'A';
+	nb_piece = compte_tab(buf);
+	tab_piece = (char **)malloc(sizeof(char *) * nb_piece);
+	while (i < 5)
+		tab_piece[i++] = (char *)malloc(sizeof(char) * 5);
+	i = 0;
+	while (buf[i] != '\0')
+	{
+		if (buf[i] != '\n')
+		{
+			if (i % 5 == 0)
+				tab_piece[lettre - 'A'][0] = lettre;
+			else
+				tab_piece[lettre - 'A'][i % 5] = buf[i];
+		}
+		if (buf[i - 1] != '\n' && buf[i - 2] != '\n')
+			lettre++;
+		i++;
+	}
+	return (tab_piece);
+}
+
 int	solveit(char *buf)
 {
 	int square;
@@ -48,6 +94,6 @@ int	solveit(char *buf)
 	i++;
 	i = i / 21;
 	square = firstsquare(i);
-	ft_putnbr(square);
+	remplir_tab(buf);
 	return (0);
 }
