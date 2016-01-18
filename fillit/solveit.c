@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 17:10:02 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/18 17:12:31 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	affiche(char **tab_piece)
 		ft_putstr("tab_piece[");
 		ft_putnbr(i);
 		ft_putstr("]\n");
-
 		while (j < 4)
 		{
 			ft_putnbr(tab_piece[i][j]);
