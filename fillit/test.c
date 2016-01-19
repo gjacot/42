@@ -34,7 +34,7 @@ void test2(void)
 	
 	tab[0] = "bjr\0";
 	test3(tab);
-	printf("tab[0] = %s\n", tab[0]); //bjr
-	printf("tab[1] = %s\n", tab[1]); //slt
-	printf("tab[2] = %s\n", tab[2]); //null
+	ft_putstr(tab[0]);
+	ft_putstr(tab[1]);
+	ft_putstr(tab[2]);
 }
