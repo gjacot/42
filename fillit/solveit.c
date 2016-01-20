@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 17:12:31 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:28:15 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,12 @@ void	affiche(char **tab_piece)
 		ft_putstr("tab_piece[");
 		ft_putnbr(i);
 		ft_putstr("]\n");
-		while (j < 4)
+		while (j < 16)
 		{
-			ft_putnbr(tab_piece[i][j]);
-			ft_putstr(" - ");
+			ft_putchar(tab_piece[i][j]);
 			j++;
+			if (j % 4 == 0)
+				ft_putstr("\n");
 		}
 		ft_putstr("\n");
 		i++;
@@ -73,7 +74,8 @@ int		solveit(char *buf)
 	i++;
 	i = i / 21;
 	square = firstsquare(i);
-	tab_piece = initvar(buf);
+	tab_piece = inittab(buf);
+	remplir_tab(buf, tab_piece);
 	affiche(tab_piece);
 	return (0);
 }

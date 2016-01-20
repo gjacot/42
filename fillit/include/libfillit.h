@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/20 16:49:35 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:24:50 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef	struct		s_piece
 	int				x;
   	int				y;
 	char			lettre;
-	struct s_pieces	*prev;
+	struct s_piece	*prev;
 }					t_piece;
 
 int		error(void);
@@ -35,15 +35,14 @@ int		test(void);
 int		lastcheck(char *buf, int i);
 int		solveit(char *buf);
 char	**inittab(char *buf);
-char	**initvar(char *buf);
-char	**remplir_tab(char *buf, int j, int k, int l);
+void	**remplir_tab(char *buf, char **tab_piece);
 void	affiche(char **tab_piece);
 int		compte_tab(char *buf);
 char	**initsquare(int square);
 int		verif_collone(char *tab, int num);
 int		verif_ligne(char *tab, int num);
-void	update_ligne(int var);
-void	update_collone(int var);
+void	update_ligne(char *tab, int var);
+void	update_collone(char *tab, int var);
 void	posi(char *tab);
 
 

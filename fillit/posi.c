@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:38:46 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/20 16:48:52 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:24:31 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		verif_ligne(char *tab, int num)
 	return (0);
 }
 
-void	update_ligne(int var)
+void	update_ligne(char *tab, int var)
 {
 	int i;
 
@@ -62,7 +62,7 @@ void	update_ligne(int var)
 	}
 }
 
-void	update_collone(int var)
+void	update_collone(char *tab, int var)
 {
 	int i;
 
@@ -87,9 +87,9 @@ void	posi(char *tab)
 	while (var > 0)
 	{
 		if (verif_ligne(tab, var) == 0)
-			update_ligne(var);
+			update_ligne(tab, var);
 		if (verif_collone(tab, var) == 0)
-			update_collone(var);
+			update_collone(tab, var);
 		var--;
 	}
 }

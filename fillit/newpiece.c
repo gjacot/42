@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   newpiece.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:18:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/20 16:08:39 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/20 17:17:21 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
 
-t_piece	*newpiece(char **piece, t_piece *next, char lettre, t_piece prev)
+t_piece	*newpiece(char **piece, t_piece *next, char lettre, t_piece *prev)
 {
 	t_piece	*piece1;
 	int		x;

@@ -18,6 +18,7 @@ SRC =	./mainfillit.c \
 		./solveit.c	\
 		./tab.c	\
 		./newpiece.c \
+		./posi.c \
 
 HEAD = -I ./include
 
