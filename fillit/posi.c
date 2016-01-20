@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:38:46 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/20 17:24:31 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 18:59:56 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,52 +44,49 @@ int		verif_ligne(char *tab, int num)
 	return (0);
 }
 
-void	update_ligne(char *tab, int var)
+void	update_ligne(char *tab)
 {
 	int i;
 
 	i = 0;
-	var *= 4;
-	while (i < 4)
+	while (i < 15)
 	{
-		if (var != 0)
+		if (tab[i] == '#')
 		{
-			tab[var - 4] = tab[var];
-			tab[var] = '.';
-			var++;
-			i++;
+			tab[i - 4] = tab[i];
+			tab[i] = '.';
 		}
+		i++;
 	}
 }
 
-void	update_collone(char *tab, int var)
+void	update_collone(char *tab)
 {
 	int i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 15)
 	{
-		if (var != 0)
+		if (tab[i] == '#')
 		{
-			tab[var - 1] = tab[var];
-			tab[var] = '.';
-			var += 4;
-			i++;
+			tab[i - 1] = tab[i];
+			tab[i] = '.';
 		}
+		i++;
 	}
 }
 
 void	posi(char *tab)
 {
-	int var;
+	int ok;
 
-	var = 3;
-	while (var > 0)
+	ok = 2;
+	while (ok >= 0)
 	{
-		if (verif_ligne(tab, var) == 0)
-			update_ligne(tab, var);
-		if (verif_collone(tab, var) == 0)
-			update_collone(tab, var);
-		var--;
+		if (verif_collone(tab, 0) == 0)
+			update_collone(tab);
+		if (verif_ligne(tab, 0) == 0)
+			update_ligne(tab);
+		ok--;
 	}
 }

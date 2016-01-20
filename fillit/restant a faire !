@@ -1,0 +1,7 @@
+restant a faire !
+
+1) fonction qui deplace la piece avec les coords en haut a gauche
+
+2) verif si sort du carrer et superposition
+
+3) si tab[LAST] est square[SQUARE][SQUARE] -> agrandir square +1
