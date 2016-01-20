@@ -6,14 +6,14 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:38:46 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/20 18:59:56 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 19:20:32 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
 
-int		verif_collone(char *tab, int num)
+static int		verif_collone(char *tab, int num)
 {
 	int i;
 
@@ -28,7 +28,7 @@ int		verif_collone(char *tab, int num)
 	return (0);
 }
 
-int		verif_ligne(char *tab, int num)
+static int		verif_ligne(char *tab, int num)
 {
 	int i;
 
@@ -44,7 +44,7 @@ int		verif_ligne(char *tab, int num)
 	return (0);
 }
 
-void	update_ligne(char *tab)
+static void		update_ligne(char *tab)
 {
 	int i;
 
@@ -60,7 +60,7 @@ void	update_ligne(char *tab)
 	}
 }
 
-void	update_collone(char *tab)
+static void		update_collone(char *tab)
 {
 	int i;
 
@@ -76,17 +76,17 @@ void	update_collone(char *tab)
 	}
 }
 
-void	posi(char *tab)
+void			posi(char *tab)
 {
-	int ok;
+	int i;
 
-	ok = 2;
-	while (ok >= 0)
+	i = 2;
+	while (i >= 0)
 	{
 		if (verif_collone(tab, 0) == 0)
 			update_collone(tab);
 		if (verif_ligne(tab, 0) == 0)
 			update_ligne(tab);
-		ok--;
+		i--;
 	}
 }
