@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 18:23:44 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 14:54:55 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+
+typedef	struct		s_piece
+{
+	char			**piece;
+	struct s_piece	*next;
+	int				x;
+  	int				y;
+	char			lettre;
+	struct s_pieces	*prev;
+}					t_piece;
 
 int		error(void);
 int		error2(char *str);
@@ -31,3 +41,8 @@ int		compte_tab(char *buf);
 char	**initsquare(int square);
 
 #endif
+
+
+
+
+
