@@ -6,13 +6,12 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 17:15:02 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 15:36:18 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
-#define BUF_SIZE 4096
 
 int		checkerror(char *buf, int i, int line, int col)
 {

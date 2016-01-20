@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/20 14:54:55 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/20 15:36:24 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+# define BUF_SIZE 4096
 
 typedef	struct		s_piece
 {
