@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:18:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/20 15:56:05 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/20 16:08:39 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 t_piece	*newpiece(char **piece, t_piece *next, char lettre, t_piece prev)
 {
 	t_piece	*piece1;
-	int x;
-	int y;
+	int		x;
+	int		y;
 
 	x = 0;
 	y = 0;
@@ -38,12 +38,3 @@ t_piece	*newpiece(char **piece, t_piece *next, char lettre, t_piece prev)
 		piece1->prev = prev;
 	return (0);
 }
-
-
-
-
-
-
-
-
-
