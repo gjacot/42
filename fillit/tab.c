@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/20 16:44:08 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:55:11 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,39 +29,29 @@ int		compte_tab(char *buf)
 	return (piece);
 }
 
-char	**initvar(char *buf)
-{
-	int		j;
-	int		k;
-	int		l;
-	char	**tab_piece;
-
-	j = 0;
-	k = 0;
-	l = 0;
-	tab_piece = remplir_tab(buf, j, k, l);
-	return (tab_piece);
-}
-
-char	**remplir_tab(char *buf, int j, int k, int l)
+char	**remplir_tab(char *buf)
 {
 	char	**tab_piece;
 	int		i;
+	int		j;
+	int		k;
 
 	i = 0;
+	j = 0;
+	k = 0;
 	tab_piece = inittab(buf);
 	while (buf[i] != '\0')
 	{
  		if (buf[i] != '\n')
- 		{
- 			tab_piece[j][i] = buf[i];
- 		}
+ 			tab_piece[j][k] = buf[i];
  		if (buf[i - 1] == '\n' && buf[i - 2] == '\n')
  		{
  			posi(tab_piece[j]);
  			j++;
+ 			k = 0;
  		}
  		i++;
+ 		k ++;
  	}
 	return (tab_piece);
 }

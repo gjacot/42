@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/20 15:36:24 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:49:35 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ char	**remplir_tab(char *buf, int j, int k, int l);
 void	affiche(char **tab_piece);
 int		compte_tab(char *buf);
 char	**initsquare(int square);
+int		verif_collone(char *tab, int num);
+int		verif_ligne(char *tab, int num);
+void	update_ligne(int var);
+void	update_collone(int var);
+void	posi(char *tab);
+
 
 #endif
 
