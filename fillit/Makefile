@@ -13,7 +13,6 @@
 NAME = fillit
 
 SRC =	./mainfillit.c \
-		./test.c	\
 		./error.c	\
 		./lastcheck.c	\
 		./solveit.c	\
