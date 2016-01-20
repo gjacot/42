@@ -19,6 +19,7 @@ SRC =	./mainfillit.c \
 		./tab.c	\
 		./newpiece.c \
 		./posi.c \
+		./verifsquare.c \
 
 HEAD = -I ./include
 
