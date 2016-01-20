@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:18:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/20 15:34:33 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/20 15:37:05 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 t_piece	*newpiece(char **piece, t_piece *next, char lettre, t_piece prev)
 {
-	t_piece	*Piece;
+	t_piece	*piece1;
 
-	Piece = NULL;
-	Piece = (t_piece *)malloc(sizeof(t_piece));
-	if (Piece == NULL)
+	piece1 = NULL;
+	piece1 = (t_piece *)malloc(sizeof(t_piece));
+	if (piece1 == NULL)
 		return (NULL);
 	if (piece && lettre)
 	{
-		Piece->piece = piece;
-		Piece->lettre = lettre;
+		piece1->piece = piece;
+		piece1->lettre = lettre;
 	}
 	if (next)
-		Piece->next = next;
+		piece1->next = next;
 	if (prev)
-		Piece->prev = prev;
+		piece1->prev = prev;
 	return (0);
 }
