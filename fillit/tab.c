@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/18 18:38:53 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:44:08 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,17 @@ char	**remplir_tab(char *buf, int j, int k, int l)
 	tab_piece = inittab(buf);
 	while (buf[i] != '\0')
 	{
-		if (buf[i - 1] == '\n' && buf[i - 2] == '\n')
-		{
-			k = 0;
-			l = 0;
-			j++;
-		}
-		if (buf[i] == '#')
-		{
-			tab_piece[j][k] = l;
-			k++;
-		}
-		if (buf[i] != '\n')
-			l++;
-		i++;
-	}
+ 		if (buf[i] != '\n')
+ 		{
+ 			tab_piece[j][i] = buf[i];
+ 		}
+ 		if (buf[i - 1] == '\n' && buf[i - 2] == '\n')
+ 		{
+ 			posi(tab_piece[j]);
+ 			j++;
+ 		}
+ 		i++;
+ 	}
 	return (tab_piece);
 }
 
@@ -83,7 +79,7 @@ char	**inittab(char *buf)
 	tab_piece[nb_piece] = NULL;
 	while (i < nb_piece)
 	{
-		if (!(tab_piece[i] = ft_memalloc(sizeof(char) * 4)))
+		if (!(tab_piece[i] = ft_memalloc(sizeof(char) * 15)))
 			error2("Probleme malloc\n");
 		i++;
 	}
