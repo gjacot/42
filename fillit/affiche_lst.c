@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affiche_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 16:33:09 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 16:49:20 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/21 18:56:46 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	affiche_lst(t_piece *lst)
 {
 	int i;
 
-	i = 1;
-	while (lst->prev)
+	i = 0;
+	while (lst->prev != NULL)
 		lst = lst->prev;
-	while (lst->next)
+	printf("debut lst = %p\n", lst);
+	while (lst->next != NULL)
 	{
-		printf("lst%d\n", i);
-		ft_putstr(lst->piece);
+		printf("lst[%d] = %s\n", i, lst->piece);
+		//ft_putstr(lst->piece);
 		ft_putchar('\n');
 		lst = lst->next;
 		i++;

@@ -20,6 +20,9 @@ SRC =	./mainfillit.c \
 		./newpiece.c \
 		./posi.c \
 		./verifsquare.c \
+		./affiche_lst.c \
+		./remplir_list.c \
+ #		./moveit.c \
 
 HEAD = -I ./include
 

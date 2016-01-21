@@ -6,14 +6,14 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:18:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 16:49:32 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/21 18:15:50 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
 
-t_piece	*newpiece(char lettre, t_piece *prev)
+t_piece	*newpiece(char lettre)
 {
 	t_piece	*piece1;
 
@@ -29,6 +29,6 @@ t_piece	*newpiece(char lettre, t_piece *prev)
 		piece1->lettre = lettre;
 	}
 		piece1->next = NULL;
-		piece1->prev = prev;
+		piece1->prev = NULL;
 	return (piece1);
 }
