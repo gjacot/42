@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/21 15:28:57 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/21 16:46:43 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	**inittab(char *buf)
 	tab_piece[nb_piece] = NULL;
 	while (i < nb_piece)
 	{
-		if (!(tab_piece[i] = ft_memalloc(sizeof(char) * 15)))
+		if (!(tab_piece[i] = ft_memalloc(sizeof(char) * 16)))
 			error2("Probleme malloc\n");
 		i++;
 	}
