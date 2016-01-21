@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:22:40 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/21 14:42:10 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/21 14:43:31 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		verifsquare(char **square, int taille, char *tab, int coord[1])
 	if ((y >= taille) && (x >= taille))
 			return (1); //pas possible
 	while (i < 15) //pour tout tab
-	{*
+	{
 		if (i % 4 == 0) //pour changer de dimension dans square
 		{
 			y++;
