@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:22:40 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/21 15:39:56 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/21 15:52:37 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int		verifsquare(char **square, int taille, char *tab, int coord[1])
 			y++;
 			x = coord[0]; //reinitialise x au coords de depart.
 		}
-		if (tab[i] == '#')
+		if (tab[i] != '.')
 		{
 			if ((x + (i % 4) > taille) || (y + (i % 4) > taille)) //a verif, pas sur avec y
 				return (2); //supperieur a taille
-			if (square[y][x + (i % 4)] == '#')
+			if (square[y][x + (i % 4)] != '.')
 				return (3); //supperposition
 		}
 	}
