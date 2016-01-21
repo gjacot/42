@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/20 19:08:35 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/21 15:28:57 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	**remplir_tab(char *buf, char **tab_piece)
 	{
 		if (buf[i - 1] == '\n' && buf[i - 2] == '\n')
 		{
-			posi(tab_piece[j]);
+			posi(tab_piece[j], j);
 			j++;
 			k = 0;
 		}
@@ -53,7 +53,7 @@ void	**remplir_tab(char *buf, char **tab_piece)
 		}
 		i++;
 	}
-	posi(tab_piece[j]);
+	posi(tab_piece[j], j);
 	return (0);
 }
 

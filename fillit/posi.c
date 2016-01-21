@@ -6,21 +6,21 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:38:46 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/20 19:20:32 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/21 15:33:42 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
 
-static int		verif_collone(char *tab, int num)
+int			verif_collone(char *tab, int num)
 {
 	int i;
 
 	i = 0;
 	while (i < 4)
 	{
-		if (tab[num] == '#')
+		if (tab[num] != '.')
 			return (1);
 		num += 4;
 		i++;
@@ -28,7 +28,7 @@ static int		verif_collone(char *tab, int num)
 	return (0);
 }
 
-static int		verif_ligne(char *tab, int num)
+int			verif_ligne(char *tab, int num)
 {
 	int i;
 
@@ -36,7 +36,7 @@ static int		verif_ligne(char *tab, int num)
 	num *= 4;
 	while (i < 4)
 	{
-		if (tab[num] == '#')
+		if (tab[num] != '.')
 			return (1);
 		num += 1;
 		i++;
@@ -44,49 +44,57 @@ static int		verif_ligne(char *tab, int num)
 	return (0);
 }
 
-static void		update_ligne(char *tab)
+void		update_ligne(char *tab, char lettre)
 {
 	int i;
 
 	i = 0;
 	while (i < 15)
 	{
-		if (tab[i] == '#')
+		if (tab[i] != '.')
 		{
-			tab[i - 4] = tab[i];
+			tab[i - 4] = lettre;
 			tab[i] = '.';
 		}
 		i++;
 	}
 }
 
-static void		update_collone(char *tab)
+void		update_collone(char *tab, char lettre)
 {
 	int i;
 
 	i = 0;
 	while (i < 15)
 	{
-		if (tab[i] == '#')
+		if (tab[i] != '.')
 		{
-			tab[i - 1] = tab[i];
+			tab[i - 1] = lettre;
 			tab[i] = '.';
 		}
 		i++;
 	}
 }
 
-void			posi(char *tab)
+void		posi(char *tab, int lettre)
 {
-	int i;
+	int		i;
+	char	lettre1;
 
+	i = 0;
+	lettre1 = lettre + 'A';
+	while (i++ < 15)
+	{
+		if (tab[i] == '#')
+			tab[i] = lettre1;
+	}
 	i = 2;
 	while (i >= 0)
 	{
 		if (verif_collone(tab, 0) == 0)
-			update_collone(tab);
+			update_collone(tab, lettre1);
 		if (verif_ligne(tab, 0) == 0)
-			update_ligne(tab);
+			update_ligne(tab, lettre1);
 		i--;
 	}
 }
