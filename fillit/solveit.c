@@ -6,14 +6,13 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 18:56:36 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/21 19:04:57 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
 
-#include <stdio.h>
 int		firstsquare(int i)
 {
 	if (i == 1)
@@ -80,7 +79,6 @@ int		solveit(char *buf)
 	tab_piece = inittab(buf);
 	remplir_tab(buf, tab_piece);
 	lst = remplir_list(tab_piece, lst);
-	printf("debut lst = %p\n", lst);
 	affiche_lst(lst);
 	//affiche(tab_piece);
 	return (0);
