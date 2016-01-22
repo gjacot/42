@@ -34,6 +34,7 @@ void	nextsquare(int *col, int *line, int *dies, int *i)
 
 int		filecheck(char *buf, int i, int line)
 {
+//et si on envoie un char *str NULL, sa donne quoi ?
 	int dies;
 	int col;
 
