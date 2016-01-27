@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 14:54:09 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/27 14:57:10 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	moveit(t_piece piece, int taille, char *tab, char **square)
 	int xy[2];
 	int verif;
 
-	while ()
+	while (piece->next)
 	{
 		xy[0] = piece->x;
 		xy[1] = piece->y;
@@ -48,13 +48,3 @@ int	moveit(t_piece piece, int taille, char *tab, char **square)
 			piece->x++;
 	}
 }
-
-
-
-
-
-
-
-
-
-
