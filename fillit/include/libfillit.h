@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 17:30:06 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/27 17:38:55 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int					lastcheck(char *buf, int i);
 int					checkerror(char *buf, int i, int line, int col);
 void				nextsquare(int *col, int *line, int *dies, int *i);
 int					filecheck(char *buf, int i, int line);
-void				moveit(t_piece piece, int taille, char *tab, char **square);
+void				moveit(t_piece *piece, int taille, char *tab, char **square);
 t_piece				*newpiece(char lettre);
 int					verif_collone(char *tab, int num);
 int					verif_ligne(char *tab, int num);
@@ -60,3 +60,5 @@ int					verifsquare(char **square, int taille,
 					char *tab, int coord[1]);
 
 #endif
+
+
