@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 16:48:51 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/27 17:30:06 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ typedef	struct		s_piece
 int					error(void);
 int					error2(char *str);
 void				affiche_lst(t_piece *lst);
-char				**clearsquare(char **square, char lettre, int taille)
+char				**clearsquare(char **square, char lettre, int taille);
+void				clean(char **square, char lettre);
+char				**newsquare(int taille);
 int					isnextto(int *die, int j, int *line);
 int					countline(int *die);
 int					lastcheck(char *buf, int i);
