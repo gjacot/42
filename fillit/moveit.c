@@ -6,14 +6,14 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 15:52:39 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/27 14:54:09 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
 
-int	moveit(t_piece piece, int square, char *tab, char **rsquare)
+int	moveit(t_piece piece, int taille, char *tab, char **square)
 {
 	int xy[2];
 	int verif;
@@ -22,14 +22,22 @@ int	moveit(t_piece piece, int square, char *tab, char **rsquare)
 	{
 		xy[0] = piece->x;
 		xy[1] = piece->y;
-		verif = verifsquare(rsquare, square, tab, xy)
+		verif = verifsquare(square, taille, tab, xy)
 		if (verif == 0)
-		{
-
-		}
+			piece = piece->next
 		else if (verif == 1)
 		{
-
+			if (piece->prev)
+			{
+				piece = piece->prev;
+				piece->x++;
+			}
+			else
+			{
+				while (piece->prev)
+					piece = piece->prev;
+			}
+			clearsquare(piece);
 		}
 		else if (verif == 2)
 		{
@@ -40,6 +48,13 @@ int	moveit(t_piece piece, int square, char *tab, char **rsquare)
 			piece->x++;
 	}
 }
+
+
+
+
+
+
+
 
 
 
