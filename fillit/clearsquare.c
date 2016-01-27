@@ -6,35 +6,12 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/27 17:28:26 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/27 17:33:07 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
-
-char	**clearsquare(char **square, char lettre, int taille)
-{
-	int tailleactuel;
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	tailleactuel = ft_strlen(square[0]);
-	if (tailleactuel < taille)
-	{
-		while (square[j] != NULL)
-		{
-			free(square[j]);
-			j++;
-		}
-		square = newsquare(int taille);
-	}
-	else
-		clean(square, lettre);
-	return (square);
-}
 
 void	clean(char **square, char lettre)
 {
@@ -67,7 +44,7 @@ char **newsquare(int taille)
 	while (j < taille)
 	{
 		i = 0;
-		nvsquare[j] = ft_memalloc(sizeof(char) * taille + 1));
+		nvsquare[j] = ft_memalloc(sizeof(char) * (taille + 1));
 		while (i < taille)
 		{
 			nvsquare[j][i] = '.';
@@ -76,4 +53,27 @@ char **newsquare(int taille)
 		j++;
 	}
 	return (nvsquare);
+}
+
+char	**clearsquare(char **square, char lettre, int taille)
+{
+	int tailleactuel;
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	tailleactuel = ft_strlen(square[0]);
+	if (tailleactuel < taille)
+	{
+		while (square[j] != NULL)
+		{
+			free(square[j]);
+			j++;
+		}
+		square = newsquare(int taille);
+	}
+	else
+		clean(square, lettre);
+	return (square);
 }
