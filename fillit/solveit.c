@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 19:04:57 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/27 18:24:47 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,42 +44,41 @@ void	affiche(char **tab_piece)
 
 	j = 0;
 	i = 0;
-	while (tab_piece[i] != NULL)
+	while (tab_piece[j] != NULL)
 	{
-		ft_putstr("tab_piece[");
-		ft_putnbr(i);
-		ft_putstr("]\n");
-		while (j < 16)
+		ft_putchar(tab_piece[j][i]);
+		if (tab_piece[j][i] == '\0')
 		{
-			ft_putchar(tab_piece[i][j]);
 			j++;
-			if (j % 4 == 0)
-				ft_putstr("\n");
+			i = -1;
+			ft_putchar('\n');
 		}
-		ft_putstr("\n");
 		i++;
-		j = 0;
 	}
 }
 
 int		solveit(char *buf)
 {
-	int		square;
+	int		taille;
 	int		i;
 	char	**tab_piece;
-	t_piece	*lst;
+	char	**square;
+	t_piece	*piece;
 
-	lst = NULL;
+	piece = NULL;
 	i = 0;
 	while (buf[i] != '\0')
 		i++;
 	i++;
 	i = i / 21;
-	square = firstsquare(i);
+	taille = firstsquare(i);
 	tab_piece = inittab(buf);
 	remplir_tab(buf, tab_piece);
-	lst = remplir_list(tab_piece, lst);
-	affiche_lst(lst);
-	//affiche(tab_piece);
+	piece = remplir_list(tab_piece, piece);
+	affiche_lst(piece);
+	square = newsquare(taille);
+	moveit(piece, taille, square, compte_tab(buf));
+	printf("\n\n\n\n");
+	affiche(square);
 	return (0);
 }

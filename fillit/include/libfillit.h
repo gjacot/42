@@ -6,17 +6,23 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 17:38:55 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/27 18:21:30 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFILLIT_H
+
+
+# include <stdio.h> //a supprimer OBLIGATOIREMENT !
+
+
 # define LIBFILLIT_H
 # include <stdlib.h>
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+
 # define BUF_SIZE 4096
 
 typedef	struct		s_piece
@@ -41,7 +47,8 @@ int					lastcheck(char *buf, int i);
 int					checkerror(char *buf, int i, int line, int col);
 void				nextsquare(int *col, int *line, int *dies, int *i);
 int					filecheck(char *buf, int i, int line);
-void				moveit(t_piece *piece, int taille, char *tab, char **square);
+void				moveit(t_piece *piece, int taille, char **square, int nbrpiece);
+void				moveit2(t_piece *piece, int taille);
 t_piece				*newpiece(char lettre);
 int					verif_collone(char *tab, int num);
 int					verif_ligne(char *tab, int num);
