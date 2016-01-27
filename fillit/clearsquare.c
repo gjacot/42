@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/27 17:33:07 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/01/27 17:35:07 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	clean(char **square, char lettre)
 	}
 }
 
-char **newsquare(int taille)
+char 	**newsquare(int taille)
 {
 	char	**nvsquare;
 	int		i;
@@ -71,7 +71,7 @@ char	**clearsquare(char **square, char lettre, int taille)
 			free(square[j]);
 			j++;
 		}
-		square = newsquare(int taille);
+		square = newsquare(taille);
 	}
 	else
 		clean(square, lettre);
