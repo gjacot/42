@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 16:06:16 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/27 16:52:15 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	moveit(t_piece *piece, int taille, char *tab, char **square)
 		else if (verif == 1)
 		{
 			moveit2(piece, taille);
-			clearsquare(piece, taille);
-			moveit(piece, taille, tab, square);
+			square = clearsquare(square, piece->lettre, taille);
+			moveit(*piece, taille, tab, square);
 		}
 		else if (verif == 2)
 		{
