@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 14:57:10 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/27 14:59:57 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	moveit(t_piece piece, int taille, char *tab, char **square)
 			piece = piece->next
 		else if (verif == 1)
 		{
-			if (piece->prev)
+			if (piece->next && piece->prev)
 			{
 				piece = piece->prev;
 				piece->x++;
@@ -35,9 +35,12 @@ int	moveit(t_piece piece, int taille, char *tab, char **square)
 			else
 			{
 				while (piece->prev)
+				{
+					taille++;
 					piece = piece->prev;
+				}
 			}
-			clearsquare(piece);
+			clearsquare(piece, taille);
 		}
 		else if (verif == 2)
 		{
