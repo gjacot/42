@@ -59,10 +59,8 @@ char 	**newsquare(int taille)
 char	**clearsquare(char **square, char lettre, int taille)
 {
 	int tailleactuel;
-	int i;
 	int j;
 
-	i = 0;
 	j = 0;
 	tailleactuel = ft_strlen(square[0]);
 	printf("square[0] = %s\n", square[0]);
