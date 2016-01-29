@@ -43,9 +43,9 @@ void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
 		temp[0] = xy[0] = piece->x;
 		temp[1] = xy[1] = piece->y;
 		//printf("il rentre3\n");
-		printf("square[0] moveit = %s\n", square[0]);
-		printf("taille moveit = %d\n", taille);
-		verif = verifsquare(square, taille, piece->piece, xy);
+		//printf("square[0] moveit = %s\n", square[0]);
+		//printf("taille moveit = %d\n", taille);
+		verif = verifsquare(square, piece);
 		printf("verif = %d\n", verif);
 
 		if (verif == 0)
@@ -66,31 +66,48 @@ void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
 				if (i % 4 == 0)
 				{
 					temp[1]++;
-					temp[0] -= 5;
+					temp[0] -= 4;
 				}
 				
 			}
 
-			if (piece->next)
+			if (piece->next != NULL)
 			{
 				piece = piece->next;
 				nbrpiece--;
 			}
 		}
 		else if (verif == 1)
-		{	piece->x = 0;
-			piece->y++;
+		{	
+
 			
 		}
 		else if (verif == 2)
 		{
+			piece->x = 0;
+			piece->y++;
+		}
+		else if (verif == 4)
+		{
+			printf("piece x = %d\n", piece->x);
+			printf("piece y = %d\n", piece->y);
+			piece->x = 0;
+			piece->y = 0;
 			moveit2(piece, taille);
 			square = clearsquare(square, piece->lettre, taille);
 			moveit(piece, taille, square, nbrpiece);
+
 		}
+		else if (verif == 5)
+		{
+			piece->x = 0;
+			piece->y++;
+		}
+			
 		else if (verif == 3)
 			piece->x++;
-		nbrpiece--;
+
+		nbrpiece = 0;
 	}
 }
 

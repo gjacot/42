@@ -63,8 +63,7 @@ int					compte_tab(char *buf);
 void				**remplir_tab(char *buf, char **tab_piece);
 char				**inittab(char *buf);
 char				**initsquare(int square);
-int					verifsquare(char **square, int taille,
-					char *tab, int coord[1]);
+int					verifsquare(char **square, t_piece *piece);
 
 #endif
 
