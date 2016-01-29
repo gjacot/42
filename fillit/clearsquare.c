@@ -67,11 +67,12 @@ char	**clearsquare(char **square, char lettre, int taille)
 	printf("tailleactuel = %d\n", tailleactuel);
 	if (tailleactuel < taille)
 	{
-		while (square[j] != NULL)
+		while (j < (tailleactuel + 1))
 		{
 			free(square[j]);
 			j++;
 		}
+		free(square);
 		square = newsquare(taille);
 	}
 	else
