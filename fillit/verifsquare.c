@@ -26,26 +26,18 @@ int		verifsquare(char **square, t_piece *piece)
 	x = piece->x;
 	y = piece->y;
 
-	/*printf("x = %d --- y = %d\n", x, y);
-	
-		printf("%s\n", tab);*/
 	while (i < 15) //pour tout tab
 	{
 	
-		if ((y >= len) && (x >= len))
-			return (1); //la piece ne rentre pas, on passe a la piece precedante
-
-
 		if ((x >= len) || (i % 4 == 0))//pour changer de dimension dans square car square = char** et piece->piece = char *
 		{
 			x = piece->x; //reinitialise x au coords de depart.
 			y++;
 		}
 
-		if ((y > len)) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas)
-			return (4); 
-
-		
+		if ((y > len)) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
+			return (2); //la piece ne rentre pas, on passe a la piece precedante
+			
 
 		if (piece->piece[i] != '.') //ne s'occupe que des pieces deja presente 
 		{
@@ -56,5 +48,6 @@ int		verifsquare(char **square, t_piece *piece)
 		i++;
 		x++;
 	}
+	//on peu placer la piece ici sinon
 	return (0);
 }

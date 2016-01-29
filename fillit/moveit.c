@@ -48,7 +48,7 @@ void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
 		verif = verifsquare(square, piece);
 		printf("verif = %d\n", verif);
 
-		if (verif == 0)
+		if (verif == 0) // la piece est bonne on peu la placer sans se soucier de rien :)
 		{
 			i = 0;
 			
@@ -77,17 +77,14 @@ void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
 				nbrpiece--;
 			}
 		}
-		else if (verif == 1)
-		{	
 
-			
-		}
-		else if (verif == 2)
-		{
+		else if (verif == 2) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
+		{					//la piece ne rentre pas, on passe a la piece precedante
+							// ATTENTION A piece->prev == NULL faut agrandir dans se cas la
 			piece->x = 0;
 			piece->y++;
 		}
-		else if (verif == 4)
+		else if (???)
 		{
 			printf("piece x = %d\n", piece->x);
 			printf("piece y = %d\n", piece->y);
@@ -98,16 +95,16 @@ void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
 			moveit(piece, taille, square, nbrpiece);
 
 		}
-		else if (verif == 5)
+		else if (???)
 		{
 			piece->x = 0;
 			piece->y++;
 		}
 			
-		else if (verif == 3)
+		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
 			piece->x++;
 
-		nbrpiece = 0;
+		nbrpiece = 0; //a suppr c'est pour le test
 	}
 }
 
