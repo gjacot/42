@@ -77,7 +77,7 @@ int		solveit(char *buf)
 	piece = remplir_list(tab_piece, piece);
 	affiche_lst(piece);
 	square = newsquare(taille);
-	moveit(piece, taille, square, compte_tab(buf));
+	moveit(piece, square, compte_tab(buf));
 	printf("\n\n\n\n");
 	affiche(square);
 	return (0);

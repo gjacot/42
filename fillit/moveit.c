@@ -13,52 +13,53 @@
 #include <libft.h>
 #include <libfillit.h>
 
-void	moveit2(t_piece *piece, int taille)
+void	mazpiece(t_piece *piece, int cond)
 {
-	if (piece->next && piece->prev)
+	if (cond == 0)
 	{
-		piece = piece->prev;
-		piece->x++;
-	}
-	else
-	{
-		while (piece->prev)
+		//remettre x et y sur toute les piece a zero
+		while (piece->next != NULL)
+			piece = piece->next; //va tout a la fin pour faire toutes les piece
+		while (piece->prev != NULL)
 		{
-			taille++;
+			piece->x = 0;
+			piece->y = 0;
 			piece = piece->prev;
 		}
+		//piece est la premiere piece
+	}
+	else if (cond == 1)
+	{
+			piece->x = 0;
+			piece->y = 0;
+			if (piece->prev != NULL)
+				piece = piece->prev;
 	}
 }
 
-void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
+void	moveit(t_piece *piece, char **square, int nbrpiece)
 {
 	int xy[2];
 	int temp[2];
 	int verif;
 	int i;
-	//printf("nbrpiece = %d\n", nbrpiece);
-	while (nbrpiece > 0)
+
+	i = 1; 
+	while (nbrpiece > 0) 
 	{
-		//printf("il rentre2\n");
 		temp[0] = xy[0] = piece->x;
 		temp[1] = xy[1] = piece->y;
-		//printf("il rentre3\n");
-		//printf("square[0] moveit = %s\n", square[0]);
-		//printf("taille moveit = %d\n", taille);
 		verif = verifsquare(square, piece);
 		printf("verif = %d\n", verif);
 
+
+////////
 		if (verif == 0) // la piece est bonne on peu la placer sans se soucier de rien :)
 		{
-			i = 0;
+			
 			
 			while (i < 15)
 			{
-				/*printf("i = %d\n", i);
-				printf("%c\n", piece->piece[i]);
-
-				printf("xy[0] = %d\nxy[1] = %d\n", xy[0], xy[1]);
-*/
 				square[temp[1]][temp[0]] = piece->piece[i];
 
 				i++;
@@ -78,33 +79,35 @@ void	moveit(t_piece *piece, int taille, char **square, int nbrpiece)
 			}
 		}
 
-		else if (verif == 2) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
-		{					//la piece ne rentre pas, on passe a la piece precedante
-							// ATTENTION A piece->prev == NULL faut agrandir dans se cas la
-			piece->x = 0;
-			piece->y++;
-		}
-		else if (???)
+
+/////////
+		else if (verif == 2 && piece->prev == NULL) //on supprime tout car on a tout tester et on agmente square
 		{
-			printf("piece x = %d\n", piece->x);
-			printf("piece y = %d\n", piece->y);
+			nbrpiece++;
 			piece->x = 0;
 			piece->y = 0;
-			moveit2(piece, taille);
-			square = clearsquare(square, piece->lettre, taille);
-			moveit(piece, taille, square, nbrpiece);
+			mazpiece(piece, 0); //Mise A Zero de xy de chaque piece
+			square = clearsquare(square, piece->lettre, ft_strlen(square[0] + 1)); //on agrandit le carrer
+			moveit(piece, square, nbrpiece); //square est maintenant plus grand
+		}
+///////
+		else if (verif == 2 && piece->prev != NULL) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
+		{					//la piece ne rentre pas, on passe a la piece precedante
+							// ATTENTION A piece->prev == NULL faut agrandir dans se cas la
+			nbrpiece++;
+			clearsquare(square, piece->lettre, ft_strlen(square[0]));
+			mazpiece(piece, 1);//xy de la piece actuel est mit a zero et retour a la piece precedante
+		}
 
-		}
-		else if (???)
-		{
-			piece->x = 0;
-			piece->y++;
-		}
-			
 		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
-			piece->x++;
-
-		nbrpiece = 0; //a suppr c'est pour le test
+		{
+			if ((int)ft_strlen(square[0]) > ((piece->x) + 1))
+			{
+				piece->y++;
+				piece->x = 0;
+			}
+		}
+	//	nbrpiece = 0; //a suppr c'est pour le test
 	}
 }
 
