@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/29 16:58:16 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/01/29 17:36:43 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		main(int argc, char **argv)
 	line = 0;
 	i = 0;
 	if (argc != 2)
-		error2("usage: ./fillit source_file\n");
+		error2("usage: ./fillit source_file\n", 2);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		error();
