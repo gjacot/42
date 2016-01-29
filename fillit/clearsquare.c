@@ -47,12 +47,13 @@ char 	**newsquare(int taille)
 		nvsquare[j] = ft_memalloc(sizeof(char) * (taille + 1));
 		while (i < taille)
 		{
-			printf("taille newsquare = %d\n", taille);
+			
 			nvsquare[j][i] = '.';
 			i++;
 		}
 		j++;
 	}
+	printf("taille newsquare = %d\n", taille);
 	return (nvsquare);
 }
 
@@ -67,15 +68,18 @@ char	**clearsquare(char **square, char lettre, int taille)
 	printf("tailleactuel = %d\n", tailleactuel);
 	if (tailleactuel < taille)
 	{
+		//problemede free
 		while (j < (tailleactuel + 1))
 		{
 			free(square[j]);
 			j++;
 		}
 		free(square);
+		printf("clearsquare OK\n");
 		square = newsquare(taille);
 	}
 	else
 		clean(square, lettre);
+	printf("nvsquare = %p\n", square);
 	return (square);
 }
