@@ -17,6 +17,9 @@ void	mazpiece(t_piece *piece, int cond)
 {
 	if (cond == 0)
 	{
+		//piece actuel si il y en a qu'une
+		piece->x = 0;
+		piece->y = 0;
 		//remettre x et y sur toute les piece a zero
 		while (piece->next != NULL)
 			piece = piece->next; //va tout a la fin pour faire toutes les piece
