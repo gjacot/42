@@ -48,7 +48,7 @@ int		verifsquare(char **square, t_piece *piece)
 
 		if (y >= len) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
 		{				//oublie du = car len commance a 1 et y a 0
-			printf("verifsquare - y < len \n");
+			printf("verifsquare - y >= len \n");
 			return (2); //la piece ne rentre pas, on passe a la piece precedante
 		}
 			

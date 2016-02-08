@@ -70,8 +70,7 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 ////////
 		if (verif == 0) // la piece est bonne on peu la placer sans se soucier de rien :)
 		{
-			
-			
+
 			while (i < 15)
 			{
 				square[temp[1]][temp[0]] = piece->piece[i];
