@@ -139,8 +139,15 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 		{
 			if ((int)ft_strlen(square[0]) > ((piece->x) + 1))
 			{
-				piece->y++;
+				
+				piece->x++;
+				printf("movit - verif 3.1 - x = %d\n", piece->x);
+			}
+			else
+			{
 				piece->x = 0;
+				piece->y++;
+				printf("movit - verif 3.2 - y = %d\n", piece->y);
 			}
 		}
 		//nbrpiece = 0; //a suppr c'est pour le test

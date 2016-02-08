@@ -16,6 +16,7 @@
 
 int		verifsquare(char **square, t_piece *piece)
 {
+	printf("--- VERIFSQUARE DEBUT ---\n");
 	int i;
 	int x;
 	int y;
@@ -36,6 +37,7 @@ int		verifsquare(char **square, t_piece *piece)
 	printf("verifsquare - i = %d\n", i);
 	printf("verifsquare - x = %d\n", x);
 	printf("verifsquare - y = %d\n", y);
+	
 		if ((x >= len) || (i % 4 == 0))//pour changer de dimension dans square car square = char** et piece->piece = char *
 		{
 			printf("verifsquare - DEBUT 1er if\n");
