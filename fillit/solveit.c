@@ -78,8 +78,9 @@ int		solveit(char *buf)
 	affiche_lst(piece);
 	square = newsquare(taille);
 	printf("pointeur square1 = %p\n", square);
+	printf("comptetab = %d\n", compte_tab(buf));
 	moveit(piece, square, compte_tab(buf));
-	printf("\n\n\n\n");
+	printf("--- AFFICHAGE ---\n");
 	affiche(square);
 	return (0);
 }

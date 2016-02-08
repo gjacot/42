@@ -15,6 +15,8 @@
 
 void	clean(char **square, char lettre)
 {
+	affiche(square);
+	printf("---CLEAN %c ---\n", lettre);
 	int i;
 	int j;
 

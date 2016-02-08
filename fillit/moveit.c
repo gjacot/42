@@ -48,18 +48,24 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 //	nbrpiece = 0;
 	
 	printf("---DEBUT MOVIT---\n");
+	printf("movit - nbrpiece = %d\n", nbrpiece);
 	int xy[2];
 	int temp[2];
 	int verif;
 	int i;
+	int ok;
 
-	i = 1; 
+	i = 0; 
+	ok = 0;
 	printf("movit - affiche(square)\n");
 	affiche(square);
 	printf("movit - fin affiche(square)\n");
 
-	while (nbrpiece > 0) 
+	while (piece->next != NULL || ok == 0) 
 	{
+
+	printf("movit - nbrpiece = %d\n", nbrpiece);
+
 		temp[0] = xy[0] = piece->x;
 		temp[1] = xy[1] = piece->y;
 		verif = verifsquare(square, piece);
@@ -70,17 +76,25 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 ////////
 		if (verif == 0) // la piece est bonne on peu la placer sans se soucier de rien :)
 		{
-
+			printf("---JOHAN---\n");
+			printf("johan - piece = %s\n", piece->piece);
 			while (i < 15)
 			{
-				square[temp[1]][temp[0]] = piece->piece[i];
+			printf("johan - i = %d\n", i);
+			printf("johan - temp[1] = %d\n", temp[1]);
+			printf("johan - temp[0] = %d\n", temp[0]);
+			printf("johan - piece[%d] = %c\n", i, piece->piece[i]);
+			printf("johan - square[%d][%d] = %c\n", temp[1], temp[0], square[temp[1]][temp[0]]);
+			
+				square[temp[1]][temp[0]]  = piece->piece[i];
 
+			printf("johan - square[%d][%d] = %c\n", temp[1], temp[0], square[temp[1]][temp[0]] );
 				i++;
 				temp[0]++;
 				if (i % 4 == 0)
 				{
 					temp[1]++;
-					temp[0] -= 3; //pas sur !!! si 3 ou 4
+					temp[0] -= 4; //c'est 4 !
 				}
 				
 			}
@@ -89,15 +103,17 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 			{
 				piece = piece->next;
 			}
+			printf("movit - nbrpiece = %d\n", nbrpiece);
 			nbrpiece--;
+			printf("movit - nbrpiece = %d\n", nbrpiece);
 			affiche(square);
+			printf("---FIN JOHAN---\n");
 		}
 
 
 /////////
 		else if (verif == 2 && piece->prev == NULL) //on supprime tout car on a tout tester et on agmente square
 		{
-			nbrpiece++;
 			piece->x = 0;
 			piece->y = 0;
 			mazpiece(piece, 0); //Mise A Zero de xy de chaque piece
@@ -107,8 +123,8 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 			printf("ft_strlen(square[0]) = %zu\n", ft_strlen(square[0]));
 			square = clearsquare(square, piece->lettre, (ft_strlen(square[0]) + 1)); //on agrandit le carrer
 			printf("pointeur square3 = %p\n", square);
-			ft_putstr(square[0]);
-			moveit(piece, square, nbrpiece); //square est maintenant plus grand
+			//ft_putstr(square[0]);
+			//moveit(piece, square, nbrpiece); //square est maintenant plus grand
 		}
 ///////
 		else if (verif == 2 && piece->prev != NULL) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
@@ -128,7 +144,7 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 			}
 		}
 		//nbrpiece = 0; //a suppr c'est pour le test
-		
+		ok = 1;
 	}
 }
 

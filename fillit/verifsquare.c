@@ -40,7 +40,8 @@ int		verifsquare(char **square, t_piece *piece)
 		{
 			printf("verifsquare - DEBUT 1er if\n");
 			x = piece->x; //reinitialise x au coords de depart.
-			y++;
+			if (i > 0 && i < 12)
+				y++;
 			printf("verifsquare - x = %d\n", x);
 			printf("verifsquare - y = %d\n", y);
 			printf("verifsquare - FIN 1er if\n");
