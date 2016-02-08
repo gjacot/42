@@ -79,7 +79,7 @@ int		solveit(char *buf)
 	square = newsquare(taille);
 	printf("pointeur square1 = %p\n", square);
 	printf("comptetab = %d\n", compte_tab(buf));
-	moveit(piece, square, compte_tab(buf));
+	square = moveit(piece, square, compte_tab(buf));
 	printf("--- AFFICHAGE ---\n");
 	affiche(square);
 	return (0);

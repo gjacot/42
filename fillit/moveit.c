@@ -41,7 +41,7 @@ void	mazpiece(t_piece *piece, int cond)
 	}
 }
 
-void	moveit(t_piece *piece, char **square, int nbrpiece)
+char	**moveit(t_piece *piece, char **square, int nbrpiece)
 {
 //	piece = NULL;
 //	square = NULL;
@@ -146,5 +146,6 @@ void	moveit(t_piece *piece, char **square, int nbrpiece)
 		//nbrpiece = 0; //a suppr c'est pour le test
 		ok = 1;
 	}
+	return (square);
 }
 

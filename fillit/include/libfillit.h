@@ -47,7 +47,7 @@ int					lastcheck(char *buf, int i);
 int					checkerror(char *buf, int i, int line, int col);
 void				nextsquare(int *col, int *line, int *dies, int *i);
 int					filecheck(char *buf, int i, int line);
-void				moveit(t_piece *piece, char **square, int nbrpiece);
+char				**moveit(t_piece *piece, char **square, int nbrpiece);
 void				moveit2(t_piece *piece, int taille);
 t_piece				*newpiece(char lettre);
 int					verif_collone(char *tab, int num);
