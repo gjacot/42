@@ -28,7 +28,7 @@ int		compte_tab(char *buf)
 	}
 	return (piece);
 }
-
+ 
 void	**remplir_tab(char *buf, char **tab_piece)
 {
 	int		i;
