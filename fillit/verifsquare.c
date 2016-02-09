@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+ 
 #include <libfillit.h>
 #include <libft.h>
 
@@ -26,6 +26,7 @@ int		verifsquare(char **square, t_piece *piece)
 	
 	x = piece->x;
 	y = piece->y;
+	y--;
 	printf("verifsquare - len = %d\n", len);
 
 	printf("verifsquare - piece = %s\n", piece->piece);
@@ -38,12 +39,11 @@ int		verifsquare(char **square, t_piece *piece)
 	printf("verifsquare - x = %d\n", x);
 	printf("verifsquare - y = %d\n", y);
 	
-		if ((x >= len) || (i % 4 == 0))//pour changer de dimension dans square car square = char** et piece->piece = char *
+		if ( i % 4 == 0 )//pour changer de dimension dans square car square = char** et piece->piece = char *
 		{
 			printf("verifsquare - DEBUT 1er if\n");
 			x = piece->x; //reinitialise x au coords de depart.
-			if (i > 0 && i < 12)
-				y++;
+			y++;
 			printf("verifsquare - x = %d\n", x);
 			printf("verifsquare - y = %d\n", y);
 			printf("verifsquare - FIN 1er if\n");
@@ -54,9 +54,16 @@ int		verifsquare(char **square, t_piece *piece)
 			printf("verifsquare - y >= len \n");
 			return (2); //la piece ne rentre pas, on passe a la piece precedante
 		}
+		if (x >= len && piece->piece[i] != '.')
+		{
+			printf("verifsquare - x >= len \n");
+			return (4);
+		}
+
+		
 			
 
-		if (piece->piece[i] != '.') //ne s'occupe que des pieces deja presente 
+		if (piece->piece[i] != '.' && (x < len)) //ne s'occupe que des pieces deja presente 
 		{
 			printf("verifsquare - DEBUT 3er if\n");
 			printf("verifsquare - x = %d\n", x);
