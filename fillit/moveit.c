@@ -76,25 +76,27 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 ////////
 		if (verif == 0) // la piece est bonne on peu la placer sans se soucier de rien :)
 		{
+			i = 0;
 			printf("---JOHAN---\n");
+			affiche(square);
 			printf("johan - piece = %s\n", piece->piece);
 			while (i < 15)
 			{
 			printf("johan - i = %d\n", i);
-			printf("johan - temp[1] = %d\n", temp[1]);
-			printf("johan - temp[0] = %d\n", temp[0]);
+			printf("johan - temp[1] = %d\n", piece->y);
+			printf("johan - temp[0] = %d\n", piece->x);
 			printf("johan - piece[%d] = %c\n", i, piece->piece[i]);
-			printf("johan - square[%d][%d] = %c\n", temp[1], temp[0], square[temp[1]][temp[0]]);
-			
-				square[temp[1]][temp[0]]  = piece->piece[i];
+			printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
+			if (square[piece->y][piece->x] != '\0')
+				square[piece->y][piece->x]  = piece->piece[i];
 
-			printf("johan - square[%d][%d] = %c\n", temp[1], temp[0], square[temp[1]][temp[0]] );
+			printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
 				i++;
-				temp[0]++;
+				piece->x++;
 				if (i % 4 == 0)
 				{
-					temp[1]++;
-					temp[0] -= 4; //c'est 4 !
+					piece->y++;
+					piece->x -= 4; //c'est 4 !
 				}
 				
 			}
@@ -109,7 +111,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 			affiche(square);
 			printf("---FIN JOHAN---\n");
 		}
-
+ 
 
 /////////
 		else if (verif == 2 && piece->prev == NULL) //on supprime tout car on a tout tester et on agmente square
@@ -149,6 +151,14 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 				piece->y++;
 				printf("movit - verif 3.2 - y = %d\n", piece->y);
 			}
+		}
+		else if (verif == 4) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
+		{
+			
+				piece->x = 0;
+				piece->y++;
+				printf("movit - verif 4.1 - y = %d\n", piece->y);
+			
 		}
 		//nbrpiece = 0; //a suppr c'est pour le test
 		ok = 1;
