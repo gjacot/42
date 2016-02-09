@@ -64,6 +64,7 @@ void				**remplir_tab(char *buf, char **tab_piece);
 char				**inittab(char *buf);
 char				**initsquare(int square);
 int					verifsquare(char **square, t_piece *piece);
+t_piece				*mazpiece(t_piece *piece, int cond);
 
 #endif
 

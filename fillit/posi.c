@@ -83,10 +83,11 @@ void		posi(char *tab, int lettre)
 
 	i = 0;
 	lettre1 = lettre + 'A';
-	while (i++ < 15)
+	while (i < 15)
 	{
 		if (tab[i] == '#')
 			tab[i] = lettre1;
+		i++;
 	}
 	i = 2;
 	while (i >= 0)

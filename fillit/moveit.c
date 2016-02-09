@@ -13,7 +13,7 @@
 #include <libft.h>
 #include <libfillit.h>
 
-void	mazpiece(t_piece *piece, int cond)
+t_piece	*mazpiece(t_piece *piece, int cond)
 {
 	if (cond == 0)
 	{
@@ -39,6 +39,7 @@ void	mazpiece(t_piece *piece, int cond)
 			if (piece->prev != NULL)
 				piece = piece->prev;
 	}
+	return (piece);
 }
 
 char	**moveit(t_piece *piece, char **square, int nbrpiece)
@@ -54,6 +55,8 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 	int verif;
 	int i;
 	int ok;
+	int compteur;
+	int savenbrpiece = nbrpiece;
 
 	i = 0; 
 	ok = 0;
@@ -80,14 +83,22 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 			printf("---JOHAN---\n");
 			affiche(square);
 			printf("johan - piece = %s\n", piece->piece);
-			while (i < 15)
+			temp[1]--;
+			compteur = 0;
+			while (i < 15 && compteur <= 3)
 			{
 			printf("johan - i = %d\n", i);
-			printf("johan - temp[1] = %d\n", piece->y);
-			printf("johan - temp[0] = %d\n", piece->x);
+			printf("johan - temp[y] = %d\n", piece->y);
+			printf("johan - temp[x] = %d\n", piece->x);
 			printf("johan - piece[%d] = %c\n", i, piece->piece[i]);
 			printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
-			if (square[piece->y][piece->x] != '\0')
+			if (piece->piece[i] != '.')
+				{
+					compteur++;
+					printf("moveit - compteur = %d\n", compteur);
+					
+				}
+			if (square[piece->y][piece->x] != '\0' && piece->piece[i] != '.')
 				square[piece->y][piece->x]  = piece->piece[i];
 
 			printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
@@ -98,13 +109,15 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 					piece->y++;
 					piece->x -= 4; //c'est 4 !
 				}
+
 				
 			}
-
 			if (piece->next != NULL)
 			{
 				piece = piece->next;
 			}
+
+			
 			printf("movit - nbrpiece = %d\n", nbrpiece);
 			nbrpiece--;
 			printf("movit - nbrpiece = %d\n", nbrpiece);
@@ -118,7 +131,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 		{
 			piece->x = 0;
 			piece->y = 0;
-			mazpiece(piece, 0); //Mise A Zero de xy de chaque piece
+			piece = mazpiece(piece, 0); //Mise A Zero de xy de chaque piece
 			printf("pointeur square2 = %p\n", square);
 			ft_putstr(square[0]);
 			printf("lettre = %c\n", piece->lettre);
@@ -134,7 +147,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 							// ATTENTION A piece->prev == NULL faut agrandir dans se cas la
 			nbrpiece++;
 			clearsquare(square, piece->lettre, ft_strlen(square[0]));
-			mazpiece(piece, 1);//xy de la piece actuel est mit a zero et retour a la piece precedante
+			piece = mazpiece(piece, 1);//xy de la piece actuel est mize a zero
 		}
 
 		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
@@ -162,6 +175,8 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 		}
 		//nbrpiece = 0; //a suppr c'est pour le test
 		ok = 1;
+		if (nbrpiece > (savenbrpiece + 1))
+			error2("Error trop de nbrpiece\n", 2);
 	}
 	return (square);
 }

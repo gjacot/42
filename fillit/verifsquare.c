@@ -21,6 +21,9 @@ int		verifsquare(char **square, t_piece *piece)
 	int x;
 	int y;
 	int len;
+	int compteur;
+
+	compteur = 0;
 	len = ft_strlen(square[0]);
 	i = 0;
 	
@@ -39,7 +42,7 @@ int		verifsquare(char **square, t_piece *piece)
 	printf("verifsquare - x = %d\n", x);
 	printf("verifsquare - y = %d\n", y);
 	
-		if ( i % 4 == 0 )//pour changer de dimension dans square car square = char** et piece->piece = char *
+		if ( i % 4 == 0 && compteur < 4)//pour changer de dimension dans square car square = char** et piece->piece = char *
 		{
 			printf("verifsquare - DEBUT 1er if\n");
 			x = piece->x; //reinitialise x au coords de depart.
@@ -49,21 +52,22 @@ int		verifsquare(char **square, t_piece *piece)
 			printf("verifsquare - FIN 1er if\n");
 		}
 
-		if (y >= len) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
-		{				//oublie du = car len commance a 1 et y a 0
-			printf("verifsquare - y >= len \n");
-			return (2); //la piece ne rentre pas, on passe a la piece precedante
-		}
+		
 		if (x >= len && piece->piece[i] != '.')
 		{
 			printf("verifsquare - x >= len \n");
 			return (4);
 		}
 
+		if (y >= len) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas) 
+		{				//oublie du = car len commance a 1 et y a 0
+			printf("verifsquare - y >= len \n");
+			return (2); //la piece ne rentre pas, on passe a la piece precedante
+		}
 		
 			
 
-		if (piece->piece[i] != '.' && (x < len)) //ne s'occupe que des pieces deja presente 
+		if (piece->piece[i] != '.') //ne s'occupe que des pieces deja presente 
 		{
 			printf("verifsquare - DEBUT 3er if\n");
 			printf("verifsquare - x = %d\n", x);
@@ -75,6 +79,16 @@ int		verifsquare(char **square, t_piece *piece)
 				return (3); //supperposition
 			}
 			printf("verifsquare - FIN 3er if\n");
+		}
+		if (piece->piece[i] != '.')
+		{
+			compteur++;
+			printf("verifsquare - compteur = %d\n", compteur);
+			if(compteur == 4)
+			{
+				printf("verifsquare - compteur = %d\n RETURN (0)", compteur);
+				return(0);
+			}
 		}
 		i++;
 		x++;
