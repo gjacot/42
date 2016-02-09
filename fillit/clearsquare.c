@@ -34,7 +34,7 @@ void	clean(char **square, char lettre)
 		i++;
 	}
 }
-
+ 
 char 	**newsquare(int taille)
 {
 	char	**nvsquare;
