@@ -131,7 +131,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 		{
 			piece->x = 0;
 			piece->y = 0;
-			piece = mazpiece(piece, 0); //Mise A Zero de xy de chaque piece
+			piece = mazpiece(piece, 0); //Mise A Zero de xy de chaque piece et retour a la premiere
 			printf("pointeur square2 = %p\n", square);
 			ft_putstr(square[0]);
 			printf("lettre = %c\n", piece->lettre);
@@ -147,7 +147,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 							// ATTENTION A piece->prev == NULL faut agrandir dans se cas la
 			nbrpiece++;
 			clearsquare(square, piece->lettre, ft_strlen(square[0]));
-			piece = mazpiece(piece, 1);//xy de la piece actuel est mize a zero
+			piece = mazpiece(piece, 1);//xy de la piece actuel est mize a zero et retour a la precedante
 		}
 
 		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
