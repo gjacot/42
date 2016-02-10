@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:18:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 18:15:50 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 14:46:37 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_piece	*newpiece(char lettre)
 		piece1->piece = NULL;
 		piece1->lettre = lettre;
 	}
-		piece1->next = NULL;
-		piece1->prev = NULL;
+	piece1->next = NULL;
+	piece1->prev = NULL;
 	return (piece1);
 }
