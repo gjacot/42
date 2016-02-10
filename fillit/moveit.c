@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 16:27:31 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 17:21:47 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,11 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 	
 	printf("---DEBUT MOVIT---\n");
 	printf("movit - nbrpiece = %d\n", nbrpiece);
-	int xy[2];
-	int temp[2];
 	int verif;
 	int i;
 	int ok;
 	int compteur;
-	int savenbrpiece = nbrpiece;
+	//int savenbrpiece = nbrpiece;
 
 	i = 0; 
 	ok = 0;
@@ -68,8 +66,8 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 
 	printf("movit - nbrpiece = %d\n", nbrpiece);
 
-		temp[0] = xy[0] = piece->x;
-		temp[1] = xy[1] = piece->y;
+		
+
 		verif = verifsquare(square, piece);
 		//verif = 3;
 		printf("movit - verif = %d\n", verif);
@@ -82,13 +80,13 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 			printf("---JOHAN---\n");
 			affiche(square);
 			printf("johan - piece = %s\n", piece->piece);
-			temp[1]--;
+
 			compteur = 0;
 			while (i < 15 && compteur <= 3)
 			{
 			printf("johan - i = %d\n", i);
-			printf("johan - temp[y] = %d\n", piece->y);
-			printf("johan - temp[x] = %d\n", piece->x);
+			printf("johan - piece[y] = %d\n", piece->y);
+			printf("johan - piece[x] = %d\n", piece->x);
 			printf("johan - piece[%d] = %c\n", i, piece->piece[i]);
 			printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
 			if (piece->piece[i] != '.')
@@ -111,7 +109,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 
 				
 			}
-			//piece = verifpiece(piece, square);
+			piece = verifpiece(piece, square);
 			if (piece->next != NULL)
 			{
 				piece = piece->next;
@@ -147,8 +145,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 							// ATTENTION A piece->prev == NULL faut agrandir dans se cas la
 			nbrpiece++;
 			clearsquare(square, piece->lettre, ft_strlen(square[0]));
-			piece = mazpiece(piece, 1);//xy de la piece actuel est mize a zero et retour a la precedante
-			//piece = piece->next;
+			piece = mazpiece(piece, 2);//xy de la piece actuel est mize a zero et retour a la precedante
 		}
 
 		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
@@ -177,8 +174,8 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 		//nbrpiece = 0; //a suppr c'est pour le test
 		if (piece->next == NULL)
 			ok = 1;
-		if (nbrpiece > (savenbrpiece + 1))
-			error2("Error trop de nbrpiece\n", 2);
+	//	if (nbrpiece > (savenbrpiece + 1))
+	//		error2("Error trop de nbrpiece\n", 2);
 	}
 	return (square);
 }
