@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/29 17:40:37 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/10 15:08:05 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		compte_tab(char *buf)
 	}
 	return (piece);
 }
- 
+
 void	**remplir_tab(char *buf, char **tab_piece)
 {
 	int		i;
