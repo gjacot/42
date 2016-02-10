@@ -24,6 +24,7 @@ SRC =	./mainfillit.c \
 		./remplir_list.c \
  		./moveit.c \
  		./clearsquare.c \
+ 		./verifpiece.c \
 
 HEAD = -I ./include
 

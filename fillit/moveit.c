@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/27 18:22:46 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 14:32:02 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,13 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 
 				
 			}
-			if (piece->next != NULL)
+
+			piece = verifpiece(piece, square);
+		/*	if (piece->next != NULL)
 			{
 				piece = piece->next;
 			}
-
+		*/
 			
 			printf("movit - nbrpiece = %d\n", nbrpiece);
 			nbrpiece--;

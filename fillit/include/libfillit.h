@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/29 17:38:39 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/10 14:32:52 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char				**inittab(char *buf);
 char				**initsquare(int square);
 int					verifsquare(char **square, t_piece *piece);
 t_piece				*mazpiece(t_piece *piece, int cond);
+t_piece 			*verifpiece(t_piece *piece, char **square);
 
 #endif
 
