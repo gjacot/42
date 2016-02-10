@@ -6,14 +6,14 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 14:07:09 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/10 14:33:30 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 15:25:20 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 #include <libft.h>
 
-t_piece *verifpiece2(t_piece *piece, int lettre)
+t_piece	*verifpiece2(t_piece *piece, int lettre)
 {
 	int lettre2;
 
@@ -37,7 +37,7 @@ t_piece *verifpiece2(t_piece *piece, int lettre)
 	return (piece);
 }
 
-t_piece *verifpiece(t_piece *piece, char **square)
+t_piece	*verifpiece(t_piece *piece, char **square)
 {
 	int		i;
 	int		j;
