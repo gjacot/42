@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 16:03:49 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 16:27:31 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 			nbrpiece++;
 			clearsquare(square, piece->lettre, ft_strlen(square[0]));
 			piece = mazpiece(piece, 1);//xy de la piece actuel est mize a zero et retour a la precedante
+			//piece = piece->next;
 		}
 
 		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
