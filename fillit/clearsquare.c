@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/01/27 17:35:07 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 14:43:05 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 void	clean(char **square, char lettre)
 {
-	affiche(square);
-	printf("---CLEAN %c ---\n", lettre);
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
+	affiche(square);
+	printf("---CLEAN %c ---\n", lettre);
 	while (square[j] != NULL)
 	{
 		if (square[j][i] >= lettre)
@@ -34,8 +34,8 @@ void	clean(char **square, char lettre)
 		i++;
 	}
 }
- 
-char 	**newsquare(int taille)
+
+char	**newsquare(int taille)
 {
 	char	**nvsquare;
 	int		i;
@@ -49,7 +49,6 @@ char 	**newsquare(int taille)
 		nvsquare[j] = ft_memalloc(sizeof(char) * (taille + 1));
 		while (i < taille)
 		{
-			
 			nvsquare[j][i] = '.';
 			i++;
 		}
