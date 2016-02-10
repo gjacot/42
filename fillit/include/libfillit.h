@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 14:55:27 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 15:01:48 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ int					verif_ligne(char *tab, int num);
 void				update_ligne(char *tab, char lettre);
 void				update_collone(char *tab, char lettre);
 void				posi(char *tab, int lettre);
-t_piece				*remplir_list(char **tab_piece, t_piece *lst);
-t_piece 			*remplir_list(char **tab_piece, t_piece *lst, int i)
+t_piece 			*remplir_list(char **tab_piece, t_piece *lst, int i);
 int					firstsquare(int i);
 void				affiche(char **tab_piece);
 int					solveit(char *buf);
