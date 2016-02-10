@@ -6,20 +6,18 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 15:47:10 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/21 19:03:46 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 14:55:51 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
 
-t_piece	*remplir_list(char **tab_piece, t_piece *lst)
+t_piece	*remplir_list(char **tab_piece, t_piece *lst, int i)
 {
-	int		i;
 	char	lettre;
 	t_piece	*tmp;
 
-	i = 0;
 	tmp = NULL;
 	lettre = 'A';
 	lst = newpiece(lettre);
