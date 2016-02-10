@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 14:32:02 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/10 16:03:49 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 t_piece	*mazpiece(t_piece *piece, int cond)
 {
-	if (cond == 0)
-	{
-		//piece actuel si il y en a qu'une
+	//piece actuel si il y en a qu'une
 		piece->x = 0;
 		piece->y = 0;
+	if (cond == 0)
+	{
 		//remettre x et y sur toute les piece a zero
 		while (piece->next != NULL)
 			piece = piece->next; //va tout a la fin pour faire toutes les piece
@@ -30,14 +30,13 @@ t_piece	*mazpiece(t_piece *piece, int cond)
 			piece = piece->prev;
 		}
 		//piece est la premiere piece
-		printf("mazpiece OK\n");
+		printf("mazpiece 1 OK\n");
 	}
 	else if (cond == 1)
 	{
-			piece->x = 0;
-			piece->y = 0;
-			if (piece->prev != NULL)
-				piece = piece->prev;
+		if (piece->prev != NULL)
+			piece = piece->prev;
+		printf("mazpiece 2 OK\n");
 	}
 	return (piece);
 }
@@ -112,13 +111,12 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 
 				
 			}
-
-			piece = verifpiece(piece, square);
-		/*	if (piece->next != NULL)
+			//piece = verifpiece(piece, square);
+			if (piece->next != NULL)
 			{
 				piece = piece->next;
 			}
-		*/
+		
 			
 			printf("movit - nbrpiece = %d\n", nbrpiece);
 			nbrpiece--;
@@ -176,7 +174,8 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 			
 		}
 		//nbrpiece = 0; //a suppr c'est pour le test
-		ok = 1;
+		if (piece->next == NULL)
+			ok = 1;
 		if (nbrpiece > (savenbrpiece + 1))
 			error2("Error trop de nbrpiece\n", 2);
 	}
