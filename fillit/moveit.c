@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/11 15:29:05 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/11 17:16:19 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,4 +155,3 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 	}
 	return (square);
 }
-
