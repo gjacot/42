@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:22:40 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/12 17:29:35 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/12 19:10:46 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		verifsquare(char **square, t_piece *piece)
 		}
 		if (x >= len && piece->piece[i] != '.')
 		{
-		
 			return (4);
 		}
 		if (y >= len) //y est sortie du tableau (sous entend qu'on a tester tout la piece et qu'elle ne rentre pas)
@@ -58,7 +57,6 @@ int		verifsquare(char **square, t_piece *piece)
 			
 			if (compteur == 4)
 			{
-				
 				return (0);
 			}
 		}

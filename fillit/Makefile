@@ -22,7 +22,7 @@ SRC =	./mainfillit.c \
 		./verifsquare.c \
 		./affiche_lst.c \
 		./remplir_list.c \
- 		./moveit2.c \
+ 		./moveit3.c \
  		./clearsquare.c \
  		./verifpiece.c \
 
