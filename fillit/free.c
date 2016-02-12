@@ -6,18 +6,18 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 16:08:22 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/12 18:42:38 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/12 18:45:17 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <libfillit.h>
 
-void	allfree(char **square, char *buf, t_piece *lst)
+void	allfree(char **square, char *buf, t_piece *piece)
 {
-	freesquare();
-	freebuf();
-	freetabpiece();
+	freesquare(square);
+	freebuf(buf);
+	freetabpiece(piece);
 }
 
 void	freesquare(char **square)
