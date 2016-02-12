@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/11 17:16:19 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/12 13:37:42 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 				printf("johan - piece[%d] = %c\n", i, piece->piece[i]);
 				printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
 				if (piece->piece[i] != '.')
-					{
-						compteur++;
-						printf("moveit - compteur = %d\n", compteur);
-					}
+				{
+					compteur++;
+					printf("moveit - compteur = %d\n", compteur);
+				}
 				if (square[piece->y][piece->x] != '\0' && piece->piece[i] != '.')
 					square[piece->y][piece->x]  = piece->piece[i];
 				printf("johan - square[%d][%d] = %c\n", piece->y, piece->x, square[piece->y][piece->x]);
@@ -97,9 +97,7 @@ char	**moveit(t_piece *piece, char **square, int nbrpiece)
 			}
 			piece = verifpiece(piece, square);
 			if (piece->next != NULL)
-			{
 				piece = piece->next;
-			}
 			printf("movit - nbrpiece = %d\n", nbrpiece);
 			nbrpiece--;
 			printf("movit - nbrpiece = %d\n", nbrpiece);
