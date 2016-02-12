@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/12 17:37:50 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/12 18:26:18 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ void placepiece(t_piece *piece, char **square)
 	}
 }
 
-
 char	**moveit(t_piece *piece, char **square)
 {
 	int verif;
 
 	INIT(int, ok, 0);
 	INIT(int, temp, 0);
+	INIT(int, compteur, 0);
 
 	affiche(square);
 	printf("\n\n");
@@ -101,7 +101,10 @@ char	**moveit(t_piece *piece, char **square)
 			piece->x = temp++;
 		}
 		else if (verif == 3) // y a une supperposition, on peu tester a x++; en faisant gaffe a la taille de square sinon y++ et x = 0;
-		{
+		{		printf("compteur = %d\n", compteur);
+				compteur++;
+				if (compteur > 15)
+					break;
 			if ((int)ft_strlen(square[0]) > ((piece->x) + 1))
 				piece->x++;
 			else if ((int)ft_strlen(square[0]) > ((piece->y) + 1))
