@@ -6,7 +6,7 @@
 #    By: gjacot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/07 12:55:13 by gjacot            #+#    #+#              #
-#    Updated: 2016/01/20 16:12:08 by gjacot           ###   ########.fr        #
+#    Updated: 2016/02/17 18:48:25 by gjacot           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,7 +22,7 @@ SRC =	./mainfillit.c \
 		./verifsquare.c \
 		./affiche_lst.c \
 		./remplir_list.c \
- 		./moveit3.c \
+ 		./moveit.c \
  		./clearsquare.c \
  		./verifpiece.c \
 
