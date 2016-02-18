@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/18 13:02:21 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/18 14:37:52 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	**placeit(char **square, t_piece *piece, int len)
 	int dies;
 	int i;
 
+	printf("--------placeit--------\n");
 	x = piece->x;
 	y = piece->y;
 	dies = 0;
@@ -49,6 +50,7 @@ char	**placeit(char **square, t_piece *piece, int len)
 
 void	ft_pieceprev(char **square, t_piece *piece, int len)
 {
+	printf("--------ft_pieceprev--------\n");
 	piece->x = 0;
 	piece->y = 0;
 	piece = piece->prev;
@@ -67,6 +69,7 @@ char	**moveit(t_piece *piece, char **square)
 	int len;
 	int ok;
 
+	printf("--------moveit--------\n");
 	ok = 0;
 	len = ft_strlen(square[0]);
 	while (ok == 0)
