@@ -1,0 +1,14 @@
+
+CTRL+A : amène votre curseur au début de la ligne que vous êtes occupé à taper.
+CTRL+E : juste l'inverse du précédent, va donc à la fin de la ligne que vous tapez.
+CTRL+L : va effacer l'écran, tout comme la commande "clear".
+CTRL+U : efface tout ce qui est avant le curseur. ( si le curseur est en fin de ligne, il effacera la ligne entière...)
+CTRL+K : efface tout ce qui est après le curseur.
+CTRL+R : recherche parmi les commandes précédentes (CTRL+R pour aller à l'occurrence précédente)
+CTRL+C : tue le programme en cours.
+CTRL+D : sort du shell courant ( pareil que la commande exit, un de mes raccourcis préféré!)
+CTRL+Z : met ce qui tourne en mode "suspendu" ( re-démarrer avec fg ou bg)
+CTRL+W : supprime le mot avant le curseur
+ALT+F : avance le curseur d'un mot
+ALT+B : recule le curseur d'un mot
+TAB : Auto complète la commande (fichier, dossier, commande, ...)
