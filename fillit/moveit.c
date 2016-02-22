@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moveit4.c                                          :+:      :+:    :+:   */
+/*   moveit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/18 14:37:52 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/22 14:09:06 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ char	**placeit(char **square, t_piece *piece, int len)
 	y = piece->y;
 	dies = 0;
 	i = 0;
+	affiche(square);
 	printf("len = %d\n", len);
 	while (dies != 4)
 	{
 		printf("x = %d\ny = %d\ni = %d\npiece[i] = %c\n", x, y, i, piece->piece[i]);
 		if (piece->piece[i] != '.')
 		{
-			affiche(square);
 			printf("----------------------------\n");
 			square[y][x] = piece->piece[i];
+			affiche(square);
 			dies++;
 		}
 		if (x >= len - 1)
