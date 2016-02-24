@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/22 14:09:06 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/02/24 14:46:00 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	**placeit(char **square, t_piece *piece, int len)
 void	ft_pieceprev(char **square, t_piece *piece, int len)
 {
 	printf("--------ft_pieceprev--------\n");
+	printf("PIECE ACTU->%c\n",piece->lettre);
 	piece->x = 0;
 	piece->y = 0;
 	piece = piece->prev;
@@ -62,6 +63,7 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 		piece->y++;
 	}
 	clearsquare(square, piece->lettre, len);
+	printf("PIECE ACTU->%c\n",piece->lettre);
 }
 
 char	**moveit(t_piece *piece, char **square)
@@ -100,7 +102,10 @@ char	**moveit(t_piece *piece, char **square)
 			clearsquare(square, piece->lettre, len);
 		}
 		else if (verif == 2 && piece->prev != NULL)
+		{
 			ft_pieceprev(square, piece, len);
+			piece = piece->prev;
+		}
 	}
 	return (square);
 }
