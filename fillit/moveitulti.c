@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/24 17:24:30 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/25 15:46:09 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,13 @@ int		ft_verifpieceactu(char **square, char lettre, int len)
 	int i;
 	int j;
 	int fail;
+	int fail2;
 
 	i = 0;
 	j = 0;
 	fail = 0;
-	while (dies != 4 && dies2 != 4 && i < 4)
+	fail2 = 0;
+	while (i < len)
 	{
 		printf("----------\ni=%d\nj=%d\n", i, j);
 		if (j >= len)
@@ -68,14 +70,17 @@ int		ft_verifpieceactu(char **square, char lettre, int len)
 		}
 		else if (square[i][j] == lettre)
 		{
-			if (square[i][j++] != lettre || square[i][j++] != '.' ||
-				square[i++][j] != lettre || square[i++][j] != '.')
+			printf("piece detecter\n");
+			if (square[i][j++] != lettre && square[i][j++] != '.')
 				fail = 1;
+			if (square[i++][j] != lettre && square[i++][j] != '.')
+				fail2 = 2;
 		}
 		else
 			j++;
+		printf("fail=%d fail2=%d\n",fail,fail2);
 	}
-	return ()
+	return (fail + fail2);
 }
 
 void	ft_pieceprev(char **square, t_piece *piece, int len)
@@ -86,7 +91,7 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 	printf("PIECE ACTU->%c\n",piece->lettre);
 	verif = ft_verifpieceactu(square, piece->lettre, len);
 	printf("verif=%d\n", verif);
-	if (verif == 0)
+	if (verif == 3)
 	{
 		piece->x = 0;
 		piece->y = 0;
@@ -102,7 +107,7 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 		printf("PIECE ACTU->%c\n",piece->lettre);
 	}
 	clearsquare(square, piece->lettre, len);
-	if (verif == 1)
+	if (verif <= 1)
 		piece->x++;
 	else
 		piece->y++;
