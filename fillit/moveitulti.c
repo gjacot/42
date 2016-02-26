@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/25 15:46:09 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/02/26 17:04:20 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,26 +62,35 @@ int		ft_verifpieceactu(char **square, char lettre, int len)
 	fail2 = 0;
 	while (i < len)
 	{
-		printf("----------\ni=%d\nj=%d\n", i, j);
-		if (j >= len)
+		while (j < len)
 		{
-			i++;
-			j = 0;
-		}
-		else if (square[i][j] == lettre)
-		{
-			printf("piece detecter\n");
-			if (square[i][j++] != lettre && square[i][j++] != '.')
-				fail = 1;
-			if (square[i++][j] != lettre && square[i++][j] != '.')
-				fail2 = 2;
-		}
-		else
+			printf("----------\ni=%d\nj=%d\nlen = %d\nlettre = %c\n", i, j, len, lettre);
+			if (square[i][j] == lettre)
+			{
+				if (j != len - 1)
+				{
+					if (square[i][j + 1] != lettre && square[i][j + 1] != '.')
+						fail = 1;
+				}
+				else
+					fail = 1;
+				if (i != len - 1)
+				{
+					if (square[i + 1][j] != lettre && square[i + 1][j] != '.')
+						fail2 = 2;
+				}
+				else
+					fail2 = 2;
+			}
 			j++;
-		printf("fail=%d fail2=%d\n",fail,fail2);
+		}
+		i++;
+		j = 0;
 	}
-	return (fail + fail2);
+		printf("fail=%d fail2=%d\n",fail,fail2);
+		return (fail + fail2);
 }
+
 
 void	ft_pieceprev(char **square, t_piece *piece, int len)
 {
@@ -90,7 +99,7 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 	printf("--------ft_pieceprev--------\n");
 	printf("PIECE ACTU->%c\n",piece->lettre);
 	verif = ft_verifpieceactu(square, piece->lettre, len);
-	printf("verif=%d\n", verif);
+	printf("verif = %d\n", verif);
 	if (verif == 3)
 	{
 		piece->x = 0;
