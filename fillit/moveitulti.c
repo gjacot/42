@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/02 16:11:30 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/02 18:18:18 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,9 @@ char	**moveit(t_piece *piece, char **square)
 	len = ft_strlen(square[0]);
 	while (ok == 0)
 	{
+		printf ("lettre av verifsquare = %c\n", piece->lettre);
 		verif = verifsquare(square, piece);
-		printf("verif = %d\ny = %d\nx = %d\n", verif, piece->y, piece->x);
+		printf("verif = %d\n", verif);
 		if (verif == 0)
 		{
 			printf("PIECE ACTU 1 = %c\n", piece->lettre);
@@ -149,9 +150,9 @@ char	**moveit(t_piece *piece, char **square)
 				ok = 1;
 			printf("PIECE ACTU 2 = %s,%c\n",piece->piece, piece->lettre);
 		}
-		else if (verif != 0 && verif != 2)
+		else if (verif == 1)
 		{
-			if (piece->x > len)
+			if (piece->x > len - 1)
 			{
 				piece->x = 0;
 				piece->y++;
@@ -159,12 +160,17 @@ char	**moveit(t_piece *piece, char **square)
 			else
 				piece->x++;
 		}
-		else if (verif == 2 && piece->prev == NULL)
+		else if (verif == 2)
+		{
+			piece->y++;
+			piece->x = 0;
+		}
+		else if (verif == 3 && piece->prev == NULL)
 		{
 			len++;
 			clearsquare(square, piece->lettre, len);
 		}
-		else if (verif == 2 && piece->prev != NULL)
+		else if (verif == 3 && piece->prev != NULL)
 		{
 			ft_pieceprev(square, piece, len);
 			piece = piece->prev;
