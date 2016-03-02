@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/26 17:04:20 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/02 16:11:30 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,13 +134,20 @@ char	**moveit(t_piece *piece, char **square)
 	while (ok == 0)
 	{
 		verif = verifsquare(square, piece);
+		printf("verif = %d\ny = %d\nx = %d\n", verif, piece->y, piece->x);
 		if (verif == 0)
 		{
+			printf("PIECE ACTU 1 = %c\n", piece->lettre);
 			square = placeit(square, piece, len);
 			if (piece->next != NULL)
+			{
+				printf("---------------ok-------------\n");
 				piece = piece->next;
+				printf("piece->lettre = %s\n", piece->piece);
+			}
 			else
 				ok = 1;
+			printf("PIECE ACTU 2 = %s,%c\n",piece->piece, piece->lettre);
 		}
 		else if (verif != 0 && verif != 2)
 		{
@@ -162,6 +169,8 @@ char	**moveit(t_piece *piece, char **square)
 			ft_pieceprev(square, piece, len);
 			piece = piece->prev;
 		}
+		if (piece->y > len -1)
+			piece->y = 0;
 	}
 	return (square);
 }
