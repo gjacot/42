@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 15:47:10 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 14:55:51 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/02 15:28:56 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_piece	*remplir_list(char **tab_piece, t_piece *lst, int i)
 	tmp = NULL;
 	lettre = 'A';
 	lst = newpiece(lettre);
+	lettre++;
 	while (tab_piece[i] != NULL)
 	{
 		lst->next = newpiece(lettre);

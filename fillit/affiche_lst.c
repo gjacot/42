@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 16:33:09 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 14:39:38 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/02 15:28:12 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	affiche_lst(t_piece *lst)
 		lst = lst->prev;
 	while (lst->next != NULL)
 	{
-		ft_putstr("lst[] = ");
+		printf("lst[%c] = ", lst->lettre);
 		ft_putstr(lst->piece);
 		ft_putchar('\n');
 		lst = lst->next;
