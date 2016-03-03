@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 16:15:57 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/02 18:20:33 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/03 15:17:16 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,25 @@ int	verifsquare(char **square, t_piece *piece)
 	len--;
 	while (i < 15)
 	{
-		if (i % 4 == 0)
+		printf("i = %d\n", i);
+		if (i % 4 == 0 && i != 0)
 		{
-			x = piece->x;
-			y++;
+				x = piece->x;
+				y++;
+				printf("et voila\n");
 		}
-		if (piece->piece[i] != '.')
+		printf("piece->piece[%c]\n", piece->piece[i]);
+		if (piece->piece[i] == piece->lettre)
 		{
 			if (square[y][x] != '.')
-				return (1); // superposition
+			{
+				if (y > len - 1)
+					return (3);
+				else
+					return (1);
+			}// superposition
 			if (x > len)
 				return (2);
-			if (y > len)
-				return (3);
 		}
 		i++;
 		x++;

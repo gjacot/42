@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/02 18:18:18 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/03 15:24:43 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 	printf("PIECE ACTU->%c\n",piece->lettre);
 	verif = ft_verifpieceactu(square, piece->lettre, len);
 	printf("verif = %d\n", verif);
-	if (verif == 3)
-	{
+	/*if (verif == 3)
+	  {*/
 		piece->x = 0;
 		piece->y = 0;
 		piece = piece->prev;
@@ -114,12 +114,12 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 		}
 		clearsquare(square, piece->lettre, len);
 		printf("PIECE ACTU->%c\n",piece->lettre);
-	}
+		//}
 	clearsquare(square, piece->lettre, len);
-	if (verif <= 1)
+/*if (verif <= 1)
 		piece->x++;
 	else
-		piece->y++;
+	piece->y++;*/
 }
 
 char	**moveit(t_piece *piece, char **square)
@@ -133,25 +133,22 @@ char	**moveit(t_piece *piece, char **square)
 	len = ft_strlen(square[0]);
 	while (ok == 0)
 	{
-		printf ("lettre av verifsquare = %c\n", piece->lettre);
 		verif = verifsquare(square, piece);
 		printf("verif = %d\n", verif);
 		if (verif == 0)
 		{
-			printf("PIECE ACTU 1 = %c\n", piece->lettre);
 			square = placeit(square, piece, len);
 			if (piece->next != NULL)
 			{
 				printf("---------------ok-------------\n");
 				piece = piece->next;
-				printf("piece->lettre = %s\n", piece->piece);
 			}
 			else
 				ok = 1;
-			printf("PIECE ACTU 2 = %s,%c\n",piece->piece, piece->lettre);
 		}
 		else if (verif == 1)
 		{
+			printf("piece->y = %d\n", piece->y);
 			if (piece->x > len - 1)
 			{
 				piece->x = 0;
@@ -165,15 +162,19 @@ char	**moveit(t_piece *piece, char **square)
 			piece->y++;
 			piece->x = 0;
 		}
-		else if (verif == 3 && piece->prev == NULL)
+		else if (verif == 3)
 		{
-			len++;
-			clearsquare(square, piece->lettre, len);
-		}
-		else if (verif == 3 && piece->prev != NULL)
-		{
-			ft_pieceprev(square, piece, len);
-			piece = piece->prev;
+			if (piece->prev == NULL)
+			{
+				len++;
+				clearsquare(square, piece->lettre, len);
+			}
+			else if (piece->prev != NULL)
+			{
+				printf("ok\n");
+				ft_pieceprev(square, piece, len);
+				piece = piece->prev;
+			}
 		}
 		if (piece->y > len -1)
 			piece->y = 0;
