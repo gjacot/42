@@ -6,7 +6,7 @@
 #    By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/25 16:30:30 by jgiraude          #+#    #+#              #
-#    Updated: 2016/02/25 18:58:00 by jgiraude         ###   ########.fr        #
+#    Updated: 2016/03/04 18:04:33 by jgiraude         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,5 +88,5 @@ fclean: clean
 re: fclean all
 
 norme:
-	@norminette $(SRC_NAME)
+	@norminette $(SRC)
 	@norminette $(INC_PATH)*.h
