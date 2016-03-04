@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verifsquargui.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 16:15:57 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/03 18:01:45 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 14:53:42 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	verifsquare(char **square, t_piece *piece)
 	len--;
 	while (dies != 4)
 	{
-		break;
+		//break;
 		if (i % 4 == 0 && i != 0 && y < len - 1)
 		{
 				x = piece->x;

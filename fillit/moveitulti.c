@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moveit.c                                           :+:      :+:    :+:   */
+/*   moveitulti.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/03 17:43:58 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 14:58:06 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,6 @@ char	**moveit(t_piece *piece, char **square)
 		if (piece->y > len -1)
 			piece->y = 0;
 	}
-	printf("kangourou\n");
+	ft_putstr("kangourou\n\0");
 	return (square);
 }

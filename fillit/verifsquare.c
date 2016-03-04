@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:22:40 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/17 17:08:27 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 14:31:01 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ int		verifsquare(char **square, t_piece *piece)
 			{
 				return (3); //supperposition
 			}
-		}
-		if (piece->piece[i] != '.')
-		{
 			compteur++;
 			if (compteur == 4)
 			{
