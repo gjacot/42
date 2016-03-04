@@ -33,7 +33,7 @@ LIB = -L ./include -lft
 all: $(NAME)
 
 $(NAME):
-		gcc -Wall -Wextra -Werror $(HEAD) -o $(NAME) $(SRC) $(LIB)
+		gcc -Wall -Wextra -Werror -g $(HEAD) -o $(NAME) $(SRC) $(LIB)
 
 clean:
 		rm -f *.c~
