@@ -6,12 +6,11 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 14:07:09 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/10 17:15:33 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:20 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <libft.h>
 
 t_piece	*verifpiece2(t_piece *piece, int lettre)
 {

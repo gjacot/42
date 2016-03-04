@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:18:55 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/12 18:59:18 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:40:01 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 t_piece	*mazpiece(t_piece *piece, int cond)

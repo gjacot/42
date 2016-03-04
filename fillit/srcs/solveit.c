@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 16:18:38 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:35 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 int		firstsquare(int i)

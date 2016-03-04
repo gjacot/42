@@ -6,18 +6,20 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 16:18:21 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:44:27 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFILLIT_H
 # define LIBFILLIT_H
+# include <libft.h>
 # include <stdio.h> //a supprimer OBLIGATOIREMENT !
 # include <stdlib.h>
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+
 # define BUF_SIZE 4096
 # define INIT(t, x, y) t x = y;
 
@@ -31,8 +33,8 @@ typedef	struct		s_piece
 	struct s_piece	*prev;
 }					t_piece;
 
-int					error(void);
-int					error2(char *str, int fd);
+void				error(void);
+void				error2(char *str, int fd);
 void				affiche_lst(t_piece *lst);
 char				**clearsquare(char **square, char lettre, int taille);
 void				clean(char **square, char lettre);

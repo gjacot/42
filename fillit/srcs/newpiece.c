@@ -6,12 +6,11 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:18:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/10 14:46:37 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:46 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <libft.h>
 
 t_piece	*newpiece(char lettre)
 {

@@ -6,12 +6,11 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:38:46 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/04 15:27:32 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:43 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <libft.h>
 
 int			verif_collone(char *tab, int num)
 {

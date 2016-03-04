@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:59:01 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/10 15:08:05 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:31 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 int		compte_tab(char *buf)

@@ -6,12 +6,11 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 16:15:57 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 14:53:42 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:22 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <libft.h>
 
 int	verifsquare(char **square, t_piece *piece)
 {

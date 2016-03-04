@@ -6,12 +6,11 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/10 14:43:05 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 18:40:40 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <libft.h>
 
 void	clean(char **square, char lettre)
 {

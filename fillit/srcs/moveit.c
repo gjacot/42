@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/02/24 14:46:00 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 18:40:03 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 char	**placeit(char **square, t_piece *piece, int len)

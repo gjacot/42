@@ -6,7 +6,7 @@
 #    By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/25 16:30:30 by jgiraude          #+#    #+#              #
-#    Updated: 2016/03/04 18:04:33 by jgiraude         ###   ########.fr        #
+#    Updated: 2016/03/04 18:38:01 by jgiraude         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,11 +79,13 @@ debug2:
 
 
 clean:
-	@rm -fv $(OBJ)
+	@rm -fv $(OBJ) > /dev/null
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	@make clean -C libft/ > /dev/null
 
 fclean: clean
-	@rm -fv $(NAME)
+	@rm -fv $(NAME) > /dev/null
+	@rm -fv libft/libft.a > /dev/null
 
 re: fclean all
 

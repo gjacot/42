@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 15:47:10 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 15:21:41 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:39 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 t_piece	*remplir_list(char **tab_piece, t_piece *lst, int i)

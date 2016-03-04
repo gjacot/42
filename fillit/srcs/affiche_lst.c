@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 16:33:09 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/02 15:28:12 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 18:40:47 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 void	affiche_lst(t_piece *lst)

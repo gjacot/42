@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lastcheck.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/01/18 13:40:51 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/04 18:40:10 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <libft.h>
 
 int	isnextto(int *die, int j, int *line)
 {

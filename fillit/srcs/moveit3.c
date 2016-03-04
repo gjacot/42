@@ -6,11 +6,10 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 18:59:52 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/02/12 19:41:50 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:39:57 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <libfillit.h>
 
 
