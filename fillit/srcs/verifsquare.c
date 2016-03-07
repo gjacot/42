@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:22:40 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/04 18:39:21 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 14:55:58 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		verifsquare(char **square, t_piece *piece)
 	INIT(int, x, piece->x);
 	INIT(int, y, piece->y);
 	INIT(int, compteur, 0);
-	INIT(int, len, ft_strlen(square[0]));
+	INIT(int, len, ft_strlen(square[0]) - 1);
 	y--;
 
 	while (i < 15) //pour tout tab

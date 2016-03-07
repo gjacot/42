@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 18:44:27 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 15:06:03 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ typedef	struct		s_piece
 	struct s_piece	*prev;
 }					t_piece;
 
+void 				mazpiece(t_piece *piece);
 void				error(void);
 void				error2(char *str, int fd);
 void				affiche_lst(t_piece *lst);
-char				**clearsquare(char **square, char lettre, int taille);
-void				clean(char **square, char lettre);
+char				**clearsquare(char **square, t_piece *piece, int taille);
+void				clean(char **square, t_piece *piece);
 char				**newsquare(int taille);
 int					isnextto(int *die, int j, int *line);
 int					countline(int *die);
@@ -62,7 +63,6 @@ void				**remplir_tab(char *buf, char **tab_piece);
 char				**inittab(char *buf);
 char				**initsquare(int square);
 int					verifsquare(char **square, t_piece *piece);
-t_piece				*mazpiece(t_piece *piece, int cond);
 t_piece				*verifpiece(t_piece *piece, char **square);
 
 #endif
