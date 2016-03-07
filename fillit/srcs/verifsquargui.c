@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 16:15:57 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 18:39:22 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 16:41:21 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ int	verifsquare(char **square, t_piece *piece)
 	INIT(int, dies, 0);
 
 	len--;
-	while (dies != 4)
+	while (dies < 4)
 	{
 		//break;
 		if (i % 4 == 0 && i != 0 && y < len - 1)
 		{
 				x = piece->x;
 				y++;
+		}
+		if (y > len) 
+		{			
+			return (3);
 		}
 		if (piece->piece[i] == piece->lettre)
 		{

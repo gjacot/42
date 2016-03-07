@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 16:40:00 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 18:39:50 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 16:02:09 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_pieceprev(char **square, t_piece *piece, int len)
 		}
 		else
 			piece->x++;
-		clearsquare(square, piece->lettre, len);
+		square = clearsquare(square, piece->lettre, len);
 }
 
 char	**moveit(t_piece *piece, char **square)
@@ -100,7 +100,7 @@ char	**moveit(t_piece *piece, char **square)
 			if (piece->prev == NULL)
 			{
 				len++;
-				clearsquare(square, piece->lettre, len);
+				square = clearsquare(square, piece->lettre, len);
 				piece->x = 0;
 				piece->y = 0;
 			}

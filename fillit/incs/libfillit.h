@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/07 15:06:03 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 16:22:41 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef	struct		s_piece
 	struct s_piece	*prev;
 }					t_piece;
 
-void 				mazpiece(t_piece *piece);
+t_piece 			*mazpiece(t_piece *piece);
 void				error(void);
 void				error2(char *str, int fd);
 void				affiche_lst(t_piece *lst);

@@ -6,7 +6,7 @@
 #    By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/25 16:30:30 by jgiraude          #+#    #+#              #
-#    Updated: 2016/03/07 14:51:58 by jgiraude         ###   ########.fr        #
+#    Updated: 2016/03/07 17:16:56 by jgiraude         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ debug2:
 
 clean:
 	@rm -fv $(OBJ) > /dev/null
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	@rm -Rf $(OBJ_PATH) > /dev/null || true
 	@make clean -C libft/ > /dev/null
 
 fclean: clean

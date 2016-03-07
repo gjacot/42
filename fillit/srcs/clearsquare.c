@@ -6,13 +6,13 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/07 15:06:46 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 16:56:38 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
 
-void mazpiece(t_piece *piece)
+t_piece *mazpiece(t_piece *piece)
 {
 	t_piece *temp;
 
@@ -23,8 +23,9 @@ void mazpiece(t_piece *piece)
 		piece->x = 0;
 		piece->y = 0;
 	}
-	while (piece != temp)
-		piece = piece->prev;
+		piece->x = 0;
+		piece->y = 0;
+	return (temp);
 }
 
 void	clean(char **square, t_piece *piece)

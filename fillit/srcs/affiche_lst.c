@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 16:33:09 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 18:40:47 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/07 16:34:02 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,7 @@ void	affiche_lst(t_piece *lst)
 		lst = lst->next;
 		i++;
 	}
+		printf("lst[%c] = ", lst->lettre);
+		ft_putstr(lst->piece);
+		ft_putchar('\n');
 }
