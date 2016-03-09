@@ -6,7 +6,7 @@
 #    By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/25 16:30:30 by jgiraude          #+#    #+#              #
-#    Updated: 2016/03/07 17:16:56 by jgiraude         ###   ########.fr        #
+#    Updated: 2016/03/09 19:28:30 by jgiraude         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC_NAME =	./mainfillit.c \
 		./newpiece.c \
 		./posi.c \
 		./verifsquargui.c \
-		./affiche_lst.c \
 		./remplir_list.c \
  		./moveitjojo.c \
  		./clearsquare.c \
