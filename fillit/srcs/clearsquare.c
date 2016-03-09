@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/09 16:29:08 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 16:57:32 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void	clean(char **square, t_piece *piece)
 		i++;
 	}
 	mazpiece(piece);
+	printf("--- AFFICHE CLEAN ---\n");
+	affiche(square);
+	printf("--- AFFICHE CLEAN ---\n");
 }
 
 char	**newsquare(int taille)

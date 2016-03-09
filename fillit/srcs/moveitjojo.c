@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 13:19:47 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/09 16:30:55 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 17:33:04 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**moveit(t_piece *piece, char **square)
 	{
 		len = ft_strlen(square[0]);
 		verif = verifsquare(square, piece);
-		printf("------\nverif = %d\npiece[%c] y = %d,x = %d\n", verif, piece->lettre, piece->y, piece->x);
+		printf("len = %d ------\nverif = %d\npiece[%c] y = %d,x = %d\n", len, verif, piece->lettre, piece->y, piece->x);
 		if (verif == 0)
 		{
 			square = placeit(square, piece);
