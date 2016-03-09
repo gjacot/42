@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:07:48 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/09 19:28:44 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:36:04 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,7 @@ int		solveit(char *buf)
 	remplir_tab(buf, tab_piece);
 	piece = remplir_list(tab_piece, piece, 0);
 	square = newsquare(taille);
-	printf("pointeur square1 = %p\n", square);
-	printf("comptetab = %d\n", compte_tab(buf));
 	square = moveit(piece, square);
-	printf("--- AFFICHAGE ---\n");
 	affiche(square);
 	return (0);
 }
