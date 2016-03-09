@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 13:19:47 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/09 17:33:04 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:21:47 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,10 @@ char	**placeit(char **square, t_piece *piece)
 	int dies;
 	int i;
 
-	//clean(square, piece);
-
 	x = piece->x;
 	y = piece->y;
 	dies = 0;
 	i = 0;
-	affiche(square);
-	printf("\n");
 	while (dies != 4)
 	{
 		if (i % 4 == 0 && i > 0)
@@ -37,8 +33,6 @@ char	**placeit(char **square, t_piece *piece)
 		if (piece->piece[i] != '.')
 		{
 			square[y][x] = piece->piece[i];
-			affiche(square);
-			printf("\n");
 			dies++;
 		}
 		x++;
@@ -49,25 +43,42 @@ char	**placeit(char **square, t_piece *piece)
 
 t_piece	*ft_pieceprev(char **square, t_piece *piece, int len)
 {
-	
-	
-	if (square == NULL)
-		error2("square == NULL", 2);
 	piece = piece->prev;
 	clean(square, piece);
-	printf("CLEAN FT_PIECEPREV\n");
 	piece->x++;
 	if (piece->x > len - 1)
 	{
 		piece->x = 0;
 		piece->y++;
 	}
-	/*else
+	return (piece);
+}
+
+t_piece	*moveit42(t_piece *piece, char **square, int verif, int *ok)
+{
+	if (verif == 0)
 	{
-		if (piece->prev != NULL)
-			ft_pieceprev(square, piece, len);
-	}*/
-	//clean(square, piece->next);
+		square = placeit(square, piece);
+		if (piece->next != NULL)
+			piece = piece->next;
+		else
+			*ok = 1;
+	}
+	else if (verif == 1)
+	{
+		if (piece->x > (int)(ft_strlen(square[0]) - 1))
+		{
+			piece->x = 0;
+			piece->y++;
+		}
+		else
+			piece->x++;
+	}
+	else if (verif == 2)
+	{
+		piece->y++;
+		piece->x = 0;
+	}
 	return (piece);
 }
 
@@ -82,35 +93,7 @@ char	**moveit(t_piece *piece, char **square)
 	{
 		len = ft_strlen(square[0]);
 		verif = verifsquare(square, piece);
-		printf("len = %d ------\nverif = %d\npiece[%c] y = %d,x = %d\n", len, verif, piece->lettre, piece->y, piece->x);
-		if (verif == 0)
-		{
-			square = placeit(square, piece);
-			printf("PLACE %c\n", piece->lettre);
-			if (piece->next != NULL)
-				piece = piece->next;
-			else
-				ok = 1;
-		}
-		else if (verif == 1)
-		{
-			if (piece->x > len - 1)
-			{
-				piece->x = 0;
-				piece->y++;
-			}
-			else
-			{
-				printf("\033[31m!!!!!!!!!!!!!!!!!ABCDEFGHIJKLMNOPQRSTUVWXYZ!!!!!!!!!!!!!!!!!!!!!!\033[37m\n");
-				piece->x++;
-			}
-		}
-		else if (verif == 2)
-		{
-			piece->y++;
-			piece->x = 0;
-		}
-		else if (verif == 3)
+		if (verif == 3)
 		{
 			if (piece->prev == NULL)
 			{
@@ -119,14 +102,10 @@ char	**moveit(t_piece *piece, char **square)
 				piece->y = 0;
 			}
 			else if (piece->prev != NULL)
-			{
-				//clean(square, piece);
 				piece = ft_pieceprev(square, piece, len);
-			}
 		}
-		//	if (piece->y > len -1)
-		//piece->y = 0;
+		else
+			piece = moveit42(piece, square, verif, &ok);
 	}
-	ft_putstr("kangourou\n\0");
 	return (square);
 }
