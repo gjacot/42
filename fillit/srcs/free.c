@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 16:08:22 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/04 18:40:14 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:31:44 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void	freesquare(char **square)
 
 void	freebuffer(char *buf)
 {
-	INIT(int, i, 0);
+	int i;
 
+	i = 0;
 	while (i < BUF_SIZE)
 	{
 		buf[i] = '\0';
@@ -49,10 +50,9 @@ void	freetabpiece(t_piece piece)
 	t_piece temp;
 	t_piece head;
 
-	
 	mazpiece(piece, 0);
 	head = piece;
-	while(piece->next)
+	while (piece->next)
 	{
 		temp = piece;
 		piece = piece->next;
@@ -60,9 +60,3 @@ void	freetabpiece(t_piece piece)
 	}
 	free(head);
 }
-
-
-//tab.c + newpiece
-//initsquare
-//inittab
-//newpiece
