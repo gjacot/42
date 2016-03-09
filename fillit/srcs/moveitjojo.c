@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 13:19:47 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/07 17:18:18 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 14:11:38 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	**placeit(char **square, t_piece *piece)
 	int dies;
 	int i;
 
+	clean(square, piece);
 	x = piece->x;
 	y = piece->y;
 	dies = 0;
@@ -46,23 +47,22 @@ char	**placeit(char **square, t_piece *piece)
 }
 
 t_piece	*ft_pieceprev(char **square, t_piece *piece, int len)
-{		
-		piece = piece->prev;
-		piece = mazpiece(piece);
-		if (piece->x > len - 1)
-		{
-			piece->x = 0;
-			piece->y++;
-		}
-		else if (piece->y > len - 1)
-			piece->y = 0;
-		else
-		{
-			if (piece->prev != NULL)
-				ft_pieceprev(square, piece, len);
-		}
-		clean(square, piece->next);
-		return (piece);
+{
+	clean(square, piece);
+	piece = piece->prev;
+	piece->x++;
+	if (piece->x > len - 1)
+	{
+		piece->x = 0;
+		piece->y++;
+	}
+	else
+	{
+		if (piece->prev != NULL)
+			ft_pieceprev(square, piece, len);
+	}
+	//clean(square, piece->next);
+	return (piece);
 }
 
 char	**moveit(t_piece *piece, char **square)
@@ -114,12 +114,10 @@ char	**moveit(t_piece *piece, char **square)
 				piece->y = 0;
 			}
 			else if (piece->prev != NULL)
-			{
 				piece = ft_pieceprev(square, piece, len);
-			}
 		}
-		if (piece->y > len -1)
-			piece->y = 0;
+		//	if (piece->y > len -1)
+		//piece->y = 0;
 	}
 	ft_putstr("kangourou\n\0");
 	return (square);
