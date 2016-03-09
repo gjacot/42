@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/09 19:05:53 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:34:37 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	clean(char **square, t_piece *piece)
 
 	i = 0;
 	j = 0;
-	affiche(square);
-	printf("---CLEAN %c ---\n", piece->lettre);
 	while (square[j] != NULL)
 	{
 		if (square[j][i] >= piece->lettre)
@@ -49,9 +47,6 @@ void	clean(char **square, t_piece *piece)
 		i++;
 	}
 	mazpiece(piece);
-	printf("--- AFFICHE CLEAN ---\n");
-	affiche(square);
-	printf("--- AFFICHE CLEAN ---\n");
 }
 
 char	**newsquare(int taille)
@@ -73,7 +68,6 @@ char	**newsquare(int taille)
 		}
 		j++;
 	}
-	printf("taille newsquare = %d\n", taille);
 	return (nvsquare);
 }
 
@@ -84,8 +78,6 @@ char	**clearsquare(char **square, t_piece *piece, int taille)
 
 	j = 0;
 	tailleactuel = ft_strlen(square[0]);
-	printf("square[0] = %s\n", square[0]);
-	printf("tailleactuel = %d\n", tailleactuel);
 	if (tailleactuel < taille)
 	{
 		while (j < (tailleactuel + 1))
@@ -94,14 +86,9 @@ char	**clearsquare(char **square, t_piece *piece, int taille)
 			j++;
 		}
 		free(square);
-		printf("clearsquare OK\n");
 		square = newsquare(taille);
 	}
 	else
-	{
 		clean(square, piece);
-		printf("CLEAN CLEARSQUARE\n");
-	}
-	printf("nvsquare = %p\n", square);
 	return (square);
 }
