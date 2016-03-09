@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 13:19:47 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/09 19:21:47 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:51:05 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	**moveit(t_piece *piece, char **square)
 	while (ok == 0)
 	{
 		len = ft_strlen(square[0]);
-		verif = verifsquare(square, piece);
+		verif = verifsquare(square, piece, 0);
 		if (verif == 3)
 		{
 			if (piece->prev == NULL)

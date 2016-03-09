@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 15:22:16 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/07 16:22:41 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:59:56 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int					compte_tab(char *buf);
 void				**remplir_tab(char *buf, char **tab_piece);
 char				**inittab(char *buf);
 char				**initsquare(int square);
-int					verifsquare(char **square, t_piece *piece);
+int					verifsquare(char **square, t_piece *piece, int dies);
 t_piece				*verifpiece(t_piece *piece, char **square);
 
 #endif
