@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 13:19:47 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/09 14:11:38 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/09 16:30:55 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	**placeit(char **square, t_piece *piece)
 	int dies;
 	int i;
 
-	clean(square, piece);
+	//clean(square, piece);
+
 	x = piece->x;
 	y = piece->y;
 	dies = 0;
@@ -48,19 +49,24 @@ char	**placeit(char **square, t_piece *piece)
 
 t_piece	*ft_pieceprev(char **square, t_piece *piece, int len)
 {
-	clean(square, piece);
+	
+	
+	if (square == NULL)
+		error2("square == NULL", 2);
 	piece = piece->prev;
+	clean(square, piece);
+	printf("CLEAN FT_PIECEPREV\n");
 	piece->x++;
 	if (piece->x > len - 1)
 	{
 		piece->x = 0;
 		piece->y++;
 	}
-	else
+	/*else
 	{
 		if (piece->prev != NULL)
 			ft_pieceprev(square, piece, len);
-	}
+	}*/
 	//clean(square, piece->next);
 	return (piece);
 }
@@ -108,13 +114,15 @@ char	**moveit(t_piece *piece, char **square)
 		{
 			if (piece->prev == NULL)
 			{
-				clean(square, piece);
 				square = clearsquare(square, piece, len + 1);
 				piece->x = 0;
 				piece->y = 0;
 			}
 			else if (piece->prev != NULL)
+			{
+				//clean(square, piece);
 				piece = ft_pieceprev(square, piece, len);
+			}
 		}
 		//	if (piece->y > len -1)
 		//piece->y = 0;

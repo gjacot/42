@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 15:28:34 by jgiraude          #+#    #+#             */
-/*   Updated: 2016/03/07 18:00:58 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/03/09 16:29:08 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ char	**clearsquare(char **square, t_piece *piece, int taille)
 		square = newsquare(taille);
 	}
 	else
+	{
 		clean(square, piece);
+		printf("CLEAN CLEARSQUARE\n");
+	}
 	printf("nvsquare = %p\n", square);
 	return (square);
 }
