@@ -6,11 +6,12 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/14 18:32:14 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/14 21:49:26 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
+#include <stdio.h>
 
 int	isnextto(int *die, int j, int *line)
 {
@@ -63,6 +64,7 @@ int	lastcheck(char *buf, int i)
 			i++;
 			j++;
 		}
+		printf("countline = %d\n", countline(die));
 		if (!(countline(die) == 8 || countline(die) == 6))
 			error();
 		i = fi + 21;
