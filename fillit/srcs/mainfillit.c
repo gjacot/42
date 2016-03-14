@@ -6,7 +6,7 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:55:15 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/04 18:40:07 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/14 18:31:51 by jgiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,23 @@ void	nextsquare(int *col, int *line, int *dies, int *i)
 	*dies = 0;
 	*i = *i + 1;
 	if (*i % 21 != 0)
+		error();
+}
+
+void	verifpoint(char *buf)
+{
+	int i;
+	int total;
+
+	i = 0;
+	total = 0;
+	while (buf[i] != '\0')
+	{
+		if (buf[i] == '.')
+			total++;
+		i++;
+	}
+	if ((total % 12) != 0)
 		error();
 }
 
@@ -54,6 +71,7 @@ int		filecheck(char *buf, int i, int line)
 		if (col == 4 && buf[i] == '\n' && dies == 4)
 			nextsquare(&col, &line, &dies, &i);
 	}
+	verifpoint(buf);
 	if (buf[i - 1] != '\n' || (buf[i - 2] != '.' && buf[i - 2] != '#'))
 		error();
 	return (1);
