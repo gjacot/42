@@ -6,26 +6,25 @@
 /*   By: jgiraude <jgiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 17:23:04 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/14 21:49:26 by jgiraude         ###   ########.fr       */
+/*   Updated: 2016/03/15 14:52:46 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libfillit.h>
-#include <stdio.h>
 
 int	isnextto(int *die, int j, int *line)
 {
-	if (die[j] - 1 == die[j - 1] || die[j] - 5 == die[j - 1])
+	if ((die[j] - 1 == die[j - 1] || die[j] - 5 == die[j - 1]) && j > 0)
 		*line = *line + 1;
-	if (die[j] - 1 == die[j - 2] || die[j] - 5 == die[j - 2])
+	if ((die[j] - 1 == die[j - 2] || die[j] - 5 == die[j - 2]) && j > 1)
 		*line = *line + 1;
-	if (die[j] - 1 == die[j - 3] || die[j] - 5 == die[j - 3])
+	if ((die[j] - 1 == die[j - 3] || die[j] - 5 == die[j - 3]) && j > 2)
 		*line = *line + 1;
-	if (die[j] + 1 == die[j + 1] || die[j] + 5 == die[j + 1])
+	if ((die[j] + 1 == die[j + 1] || die[j] + 5 == die[j + 1]) && j < 4)
 		*line = *line + 1;
-	if (die[j] + 1 == die[j + 2] || die[j] + 5 == die[j + 2])
+	if ((die[j] + 1 == die[j + 2] || die[j] + 5 == die[j + 2]) && j < 3)
 		*line = *line + 1;
-	if (die[j] + 1 == die[j + 3] || die[j] + 5 == die[j + 3])
+	if ((die[j] + 1 == die[j + 3] || die[j] + 5 == die[j + 3]) && j < 2)
 		*line = *line + 1;
 	return (0);
 }
@@ -64,7 +63,6 @@ int	lastcheck(char *buf, int i)
 			i++;
 			j++;
 		}
-		printf("countline = %d\n", countline(die));
 		if (!(countline(die) == 8 || countline(die) == 6))
 			error();
 		i = fi + 21;
