@@ -6,41 +6,59 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 17:41:27 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/31 18:26:37 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/04/01 17:59:32 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		get_next_next_line(int *i, char *tmp)
+int		get_next_next_line(char *tmp)
 {
-	while (tmp[*i] != '\n' && tmp[*i] != '\0')
-			i++;
-	if (tmp[*i] == '\n')
-	{
-		while (tmp[*i] != '\0')
-		{
+	int i;
+	int len;
 
-		}
-	}
-	return (0);
+	len = ft_strlen(tmp);
+	i = 0;
+	while (tmp[i] != '\n' && i < len)
+		i++;
+	return (i);
 }
 
 void	lastcheck(char **line)
 {
-	int len;
+	int		len;
+	char	*n;
+	int		i;
 
-	ft_putstr("ok\n");
+	i = 0;
+	n = ft_strchr(*line, '\n');
 	len = ft_strlen(*line);
-	ft_putnbr(len);
-	ft_putchar('\n');
-	ft_putchar(*line[len - 1]);
-	ft_putchar('\n');
-	if (*line[len] == '\n')
+	if (n != NULL)
 	{
-		*line[len] = '\0';
-		ft_putstr("ok\n");
+		n = ft_strsub(*line, 0, len);
+		free(*line);
+		while (n[i] != '\n')
+			i++;
+		*line = ft_strsub(n, 0, i);
 	}
+}
+
+void	save_tmp(char *tmp)
+{
+	int		i;
+	int		len;
+
+	i = 0;
+	len = ft_strlen(tmp);
+	while (tmp[i - 1] != '\n')
+		i++;
+	tmp = ft_strsub(tmp, i, len);
+}
+
+void	tmp_check(char **tmp, char **line)
+{
+	*tmp = ft_strnew(BUFF_SIZE);
+	*line = NULL;
 }
 
 int		get_next_line(const int fd, char **line)
@@ -53,19 +71,21 @@ int		get_next_line(const int fd, char **line)
 	i = 0;
 	if (BUFF_SIZE <= 0 || fd < 0)
 		return (-1);
-	tmp = ft_strnew(BUFF_SIZE);
-	*line = NULL;
-	while (ft_strchr(tmp, '\n') == NULL)
+	if (tmp == NULL)
+		tmp_check(&tmp, line);
+	else
+		*line = ft_strsub(tmp, 0, ft_strlen(tmp));
+	while (ft_strchr(tmp, '\n') == NULL || ft_strcmp(tmp, *line) == 0)
 	{
 		i = 0;
 		ret = read(fd, tmp, BUFF_SIZE);
-		tmp[ret] = '\0';
-		get_next_next_line(&i, tmp);
+		i = get_next_next_line(tmp);
 		if (*line != NULL)
 			*line = ft_strjoin(*line, tmp);
 		else
-			*line = ft_strsub(tmp, 0, *i);
+			*line = ft_strsub(tmp, 0, i);
 	}
+	save_tmp(tmp);
 	lastcheck(line);
 	return (0);
 }
