@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 17:45:26 by gjacot            #+#    #+#             */
-/*   Updated: 2016/03/31 17:46:36 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/04/04 16:41:17 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ int	main(int argc, char **argv)
 	line = NULL;
 	if (argc == 2)
 	{
-		//while (j != 0)
-		//{
-			fd = open(argv[1], O_RDONLY);
+		fd = open(argv[1], O_RDONLY);
+		while (get_next_line(fd, &line) > 0)
+		{
 			get_next_line(fd, &line);
 			if (line != NULL)
 				ft_putstr(line);
 			else
 				ft_putstr("error empty line\n");
-			j--;
-			//}
+			free (line);
+		}
 	}
-	return (-1);
+	return (0);
 }
