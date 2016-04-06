@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:44:58 by gjacot            #+#    #+#             */
-/*   Updated: 2016/04/06 16:03:31 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/04/06 18:58:48 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ int	get_the_following(t_get *get, char *str, char **line, int ret)
 {
 	int	i;
 
-	i = 0;
-	while (str[i - 1] != '\n')
+	i = 1;
+	while (str[i - 1] != '\n' && str[i - 1] != '\0')
 		i++;
+			ft_putstr("ok\n");
 	if (i <= (int)ft_strlen(str))
 	{
 		get->tmp = ft_strsub(str, i, ft_strlen(str));
 		*line = ft_strsub(str, 0, i - 1);
+		printf("tmp=%s\nstr=%s", get->tmp, str);
+		free(str);
 		str = NULL;
 	}
 	if (ret < BUFF_SIZE)
@@ -36,19 +39,20 @@ int	get_next_line(const int fd, char **line)
 	int				ret;
 	char			*str;
 
+	str = NULL;
 	if (BUFF_SIZE <= 0 || fd < 0)
 		return (-1);
 	if (!get.tmp)
 		get.tmp = ft_strnew(BUFF_SIZE);
 	else
 	{
+		printf("tmp before =%s\n", get.tmp);
 		str = ft_strsub(get.tmp, 0, ft_strlen(get.tmp));
-		ft_strclr(get.tmp);
+		//ft_strclr(get.tmp);
 	}
 	while (ft_strchr(get.tmp, '\n') == NULL && ret != 0)
 	{
 		ret = read(fd, get.tmp, BUFF_SIZE);
-		printf("tmp=%s\n", get.tmp);
 		if (str == NULL)
 			str = ft_strsub(get.tmp, 0, ft_strlen(get.tmp));
 		else
