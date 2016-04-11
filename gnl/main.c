@@ -37,14 +37,15 @@ int	main(int argc, char **argv)
 				ft_putstr("final line = ");
 				ft_putstr(line);
 			}
-			else
-				ft_putstr("error empty line\n");
-			free (line);
+			else 
+			  ft_putstr("line vide");
+			if (line)
+			ft_strdel(&line);
 			i++;
 			j--;
 			ft_putchar('\n');
 		}
-		ft_putnbr(ret);
+		printf("derrnier appel:\n%s", line);
 	}
 	return (0);
 }

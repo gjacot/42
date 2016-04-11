@@ -19,17 +19,20 @@ int	get_the_following(t_get *get, char *str, char **line, int ret)
 	i = 1;
 	while (str[i - 1] != '\n' && str[i - 1] != '\0')
 		i++;
-			ft_putstr("ok\n");
 	if (i <= (int)ft_strlen(str))
 	{
 		get->tmp = ft_strsub(str, i, ft_strlen(str));
+		ft_putstr("\nstr=");
+		ft_putstr(str);
 		*line = ft_strsub(str, 0, i - 1);
-		printf("tmp=%s\nstr=%s", get->tmp, str);
-		free(str);
-		str = NULL;
+		if (*line && get->tmp)
+		  ft_strdel(&get->tmp);
 	}
 	if (ret < BUFF_SIZE)
+	  {
+	    ft_putstr(*line);
 		return (0);
+	  }
 	return (1);
 }
 
@@ -46,7 +49,7 @@ int	get_next_line(const int fd, char **line)
 		get.tmp = ft_strnew(BUFF_SIZE);
 	else
 	{
-		printf("tmp before =%s\n", get.tmp);
+	  //printf("tmp before =%s\n", get.tmp);
 		str = ft_strsub(get.tmp, 0, ft_strlen(get.tmp));
 		//ft_strclr(get.tmp);
 	}
