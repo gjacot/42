@@ -48,3 +48,10 @@ int		ft_key_release(int key, t_env *e)
 		e->turn_right = 0;
 	return (0);
 }
+
+int		ft_redcross(t_env *e)
+{
+	(void)e;
+	exit(0);
+	return (0);
+}

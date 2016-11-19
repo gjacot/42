@@ -10,23 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		WOLF3D_H
-# define	WOLF3D_H
+#ifndef WOLF3D_H
+# define WOLF3D_H
 
 # include "./libft/libft.h"
 # include <mlx.h>
 # include <math.h>
-# include			<stdio.h>
 
-typedef struct s_pos
+typedef struct	s_pos
 {
-	float			x;
-	float			y;
+	float		x;
+	float		y;
 }				t_pos;
 
 typedef struct	s_env
 {
-	int			x;
 	float		player_dir;
 	float		a;
 	float		b;
@@ -59,27 +57,19 @@ typedef struct	s_env
 	int			turn_right;
 }				t_env;
 
-int		ft_turn(int i, t_env *e);
-int		ft_key_press(int key, t_env *e);
-int		ft_key_release(int key, t_env *e);
-int		ft_go_forward(int i, t_env *e);
+int				ft_turn(int i, t_env *e);
+int				ft_key_press(int key, t_env *e);
+int				ft_key_release(int key, t_env *e);
+int				ft_go_forward(int i, t_env *e);
+void			ft_init_map(t_env *e);
+void			ft_trace_column(t_env *e, float dist, int x, int prout);
+int				ft_wolf(t_env *e);
+int				ft_redcross(t_env *e);
+void			ft_verif_dir(t_env *e);
+void			ft_distwall(t_env *e, float x_dir, float p_dir);
+void			ft_move(t_env *e);
+float			ft_wall_hori(t_env *e, float dir);
+float			ft_wallverti(t_env *e, float dir);
+float			ft_abs(float n);
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

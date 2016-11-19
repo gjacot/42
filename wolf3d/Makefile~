@@ -6,7 +6,7 @@
 #    By: gjacot <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/08 15:33:41 by gjacot            #+#    #+#              #
-#    Updated: 2016/11/17 12:38:13 by gjacot           ###   ########.fr        #
+#    Updated: 2016/11/19 16:54:37 by gjacot           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,8 +16,12 @@ DIROBJ		=	./obj/
 SUB_MAKE	=	./libft/
 INC_LIB		=	-L./libft -lft
 SRC			=	./main.c \
-				./ft_event.c
-				./ft_move.c
+				./ft_event.c \
+				./ft_move.c \
+				./ft_wolf.c \
+				./ft_draw.c \
+				./ft_map.c \
+				./ft_wall.c
 
 OBJ			=	$(SRC:.c=.o)
 OBJS		=	$(OBJ:%=$(DIROBJ)%)
@@ -38,7 +42,7 @@ RM			=	/bin/rm -f
 ECHO		=	/bin/echo -e
 
 
-$(NAME)	:		$(OBJ)
+$(NAME)	:		$(OBJS)
 ifdef SUB_MAKE
 				@(cd $(SUB_MAKE) && $(MAKE))
 endif

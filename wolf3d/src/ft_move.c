@@ -19,13 +19,13 @@ int		ft_go_forward(int i, t_env *e)
 
 	ft_turn(0, e);
 	x = 40 * (float)i * cos(M_PI * e->player_dir / 180);
-	y = -40 * (float)i * sin(M_PI * e->player_dir /180);
+	y = -40 * (float)i * sin(M_PI * e->player_dir / 180);
 	if (e->p_y + y > 0 && e->p_y + y < e->map_height && e->map\
 		[(int)(e->p_y + y) / e->size][(int)(e->p_x) / e->size] == 0)
-		e->p_y +=y;
+		e->p_y += y;
 	if (e->p_x + x > 0 && e->p_x + x < e->map_weight && e->map\
 		[(int)(e->p_y) / e->size][(int)(e->p_x + x) / e->size] == 0)
-		e->p_x +=x;
+		e->p_x += x;
 	return (0);
 }
 
@@ -37,4 +37,24 @@ int		ft_turn(int i, t_env *e)
 	else if (e->player_dir < 0)
 		e->player_dir += 360;
 	return (0);
+}
+
+void	ft_verif_dir(t_env *e)
+{
+	if (e->p_dir + e->x_dir >= 360)
+		e->p_dir -= 360;
+	else if (e->p_dir + e->x_dir < 0)
+		e->p_dir += 360;
+}
+
+void	ft_move(t_env *e)
+{
+	if (e->go_forward == 1)
+		ft_go_forward(1, e);
+	if (e->go_back == 1)
+		ft_go_forward(-1, e);
+	if (e->turn_left == 1)
+		ft_turn(-3, e);
+	if (e->turn_right == 1)
+		ft_turn(3, e);
 }

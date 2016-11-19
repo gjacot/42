@@ -6,7 +6,7 @@
 /*   By: gjacot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 15:36:42 by gjacot            #+#    #+#             */
-/*   Updated: 2016/11/19 15:28:39 by gjacot           ###   ########.fr       */
+/*   Updated: 2016/11/19 15:54:20 by gjacot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_wolf_init(t_env *e)
 {
 	e->size = 1000;
-	e->screen_x = 640;
-	e->screen_y = 400;
+	e->screen_x = 1024;
+	e->screen_y = 768;
 	e->p_x = 2.5 * e->size;
 	e->p_y = 2.5 * e->size;
 	e->player_dir = 0;
@@ -169,7 +169,7 @@ float	ft_wallverti(t_env *e, float dir)
 	}
 	if (dir > 90 && dir < 270)
 	{
-		return (sqrt (ft_abs(pow((e->p_y - b.y), 2)) + ft_abs(pow((e->p_x - b.x), 2))));
+		return (sqrt (ft_abs(pow((e->p_y - b.y), 2)) + ft_abs(pow((e->p_x - b.x - 1), 2))));
 	}
 	return (sqrt(ft_abs(pow((e->p_y - b.y), 2)) + ft_abs(pow((e->p_x - b.x), 2))));
 }
@@ -269,7 +269,10 @@ int		ft_wolf(t_env *e)
 		if (e->a < e->b)
 		{
 			if (e->a > -1)
+			{
+				printf("zboub %f, %f\n", e->a, e->b);
 				ft_trace_column(e, e->a, x, 1);
+			}
 			else
 				ft_trace_column(e, e->b, x, 2);
 		}
@@ -281,11 +284,13 @@ int		ft_wolf(t_env *e)
 			}
 			else
 			{
+				printf("zboub %f, %f\n", e->a, e->b);
 				ft_trace_column(e, e->a, x, 1);
 			}
 		}
 		else
 		{
+			printf("tamagochi = %d\n", x);
 			ft_trace_column(e, e->a, x, 1);
 		}
 		x++;
